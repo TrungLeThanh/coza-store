@@ -56,8 +56,8 @@ const Header = () =>{
             <div className="header__bonus">
                 <span>
                     <i style={{fontSize: '18px', paddingLeft: '35px', color: 'rgb(51, 51, 51)'}} className="fas fa-search" />
-                    <i style={{fontSize: '18px', paddingLeft: '20px', color: 'rgb(51, 51, 51)'}} class="fas fa-shopping-cart" />
-                    <i style={{fontSize: '25px', paddingLeft: '20px', color: 'rgb(51, 51, 51)'}} class="fas fa-caret-down" />
+                    <i style={{fontSize: '18px', paddingLeft: '20px', color: 'rgb(51, 51, 51)'}} className="fas fa-shopping-cart" />
+                    <i style={{fontSize: '25px', paddingLeft: '20px', color: 'rgb(51, 51, 51)'}} className="fas fa-caret-down" />
                 </span>
             </div>
 

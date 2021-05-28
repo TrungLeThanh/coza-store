@@ -51,6 +51,7 @@
 
 .header__item:hover{
     color: rgb(108, 122, 224);
+    text-decoration: none;
 }
 
 
@@ -172,6 +173,7 @@
 
     #select{
         display: block;
+        margin-top: -15px;
     }
 }
 
