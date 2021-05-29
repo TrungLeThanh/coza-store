@@ -14,7 +14,7 @@ const Banner = () => {
                         className="style-image"
                     />
                     <Carousel.Caption className='carousel-caption'>
-                        <h2 className="h2-carousel">woman collection - 2021</h2>  
+                        <h2 className="h2-carousel">woman collection- 2021</h2>  
                         <h1 className="h1-carousel">new season</h1>  
                         <h1 className="btn-carousel"><button style={{background: 'rgb(108, 122, 224)', color: '#fff', fontSize: '16px', borderRadius: '25px'}} className="ui button">SHOP NOW</button></h1>
                     </Carousel.Caption>
@@ -26,8 +26,8 @@ const Banner = () => {
                         className="style-image"
                     />
                     <Carousel.Caption className='carousel-caption'>
-                        <h2 className="h2-carousel">man collection - 2021</h2>  
-                        <h1 className="h1-carousel">new arrivails</h1> 
+                        <h2 className="h2-carousel">man collection- 2021</h2>  
+                        <h1 className="h1-carousel">new season</h1> 
                         <h1 className="btn-carousel"><button style={{background: 'rgb(108, 122, 224)', color: '#fff', fontSize: '16px', borderRadius: '25px'}} className="ui button">SHOP NOW</button></h1>
                     </Carousel.Caption>
                 </Carousel.Item>
@@ -38,7 +38,7 @@ const Banner = () => {
                         className="style-image"
                     />
                     <Carousel.Caption className='carousel-caption'>
-                        <h2 className="h2-carousel">man new - season - 2021</h2>  
+                        <h2 className="h2-carousel">man new season- 2021</h2>  
                         <h1 className="h1-carousel">new season</h1> 
                         <h1 className="btn-carousel"><button style={{background: 'rgb(108, 122, 224)', color: '#fff', fontSize: '16px', borderRadius: '25px'}} className="ui button">SHOP NOW</button></h1>
                     </Carousel.Caption>
