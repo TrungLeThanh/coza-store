@@ -1,90 +1,89 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
 
-.wrap-banner{
+.wrap-banner {
     width: 100%;
-    height:150vh;
+    height: 150vh;
     overflow: hidden;
 }
 
-.h2-carousel{
-    font-family: 'Poppins, sans-serif';
+.h2-carousel {
+    font-family: "Poppins, sans-serif";
     font-weight: 500;
-    font-size: 30px;
+    font-size: 35px;
     position: absolute;
     color: rgb(51, 51, 51);
     text-align: left;
     bottom: 440px;
     left: -50px;
-    letter-spacing: 3px;
+    letter-spacing: 5px;
 }
 
-.h1-carousel{
-    font-family: 'Poppins, sans-serif';
+.h1-carousel {
+    font-family: "Poppins, sans-serif";
     font-weight: 500;
-    font-size: 45px;
+    font-size: 50px;
     position: absolute;
     color: rgb(51, 51, 51);
     text-align: left;
     bottom: 370px;
     left: -50px;
-    letter-spacing: 3px;
+    letter-spacing: 5px;
 }
 
-.btn-carousel{
+.btn-carousel {
     position: absolute;
     text-align: left;
     bottom: 310px;
     left: -50px;
 }
 
-.style-image{
+.style-image {
     height: 100vh;
     object-fit: cover;
 }
 
-@media (max-width:1094px) {
-    .h2-carousel{
+@media (max-width: 1094px) {
+    .h2-carousel {
         left: -45px;
         font-size: 30px;
-    }
-    .h1-carousel{
+     }
+    .h1-carousel {
         left: -45px;
         font-size: 40px;
     }
 
-    .style-image{
+    .style-image {
         width: 100%;
     }
 
-    .style-image{
+    .style-image {
         height: 98vh;
         object-fit: cover;
     }
 }
 
 @media (max-width: 635px) {
-    .h2-carousel{
+    .h2-carousel {
         font-size: 25px;
     }
-    .h1-carousel{
+    .h1-carousel {
         font-size: 35px;
-    }
-
+    } 
 }
 
 @media (max-width: 555px) {
-    .h2-carousel{
+    .h2-carousel {
         font-size: 23px;
         padding-left: 30px;
         letter-spacing: 1px;
     }
-    .h1-carousel{
+    .h1-carousel {
         padding-left: 30px;
         font-size: 33px;
         letter-spacing: 1px;
     }
 
-    .btn-carousel{
+    .btn-carousel {
         padding-left: 30px;
     }
 }
