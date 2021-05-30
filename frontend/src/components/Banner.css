@@ -39,17 +39,15 @@
 
 .style-image {
     height: 100vh;
-    object-fit: cover;
+    width: 100%;
 }
 
 @media (max-width: 1094px) {
     .h2-carousel {
         left: -45px;
-        font-size: 30px;
-     }
+    }
     .h1-carousel {
         left: -45px;
-        font-size: 40px;
     }
 
     .style-image {
@@ -57,33 +55,53 @@
     }
 
     .style-image {
-        height: 98vh;
         object-fit: cover;
     }
 }
 
 @media (max-width: 635px) {
     .h2-carousel {
-        font-size: 25px;
+        font-size: 30px;
     }
     .h1-carousel {
-        font-size: 35px;
+        font-size: 40px;
     } 
 }
 
 @media (max-width: 555px) {
     .h2-carousel {
-        font-size: 23px;
         padding-left: 30px;
         letter-spacing: 1px;
     }
     .h1-carousel {
         padding-left: 30px;
-        font-size: 33px;
         letter-spacing: 1px;
     }
 
     .btn-carousel {
         padding-left: 30px;
+    }
+}
+
+@media (max-width: 400px) {
+    .h2-carousel {
+        font-size: 27px;
+    }
+    .h1-carousel {
+        font-size: 37px;
+    }
+}
+
+@media (max-height: 99vh){
+    .h2-carousel {
+        display: none;
+    }
+
+    .h1-carousel {
+        display: none;
+    }
+
+    .btn-carousel{
+        display: none
     }
 }

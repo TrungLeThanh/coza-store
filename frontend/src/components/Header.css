@@ -11,6 +11,7 @@
     position: absolute;
     background: transparent;
     transition: 0.5s;
+    z-index: 999;
 }
 
 .header__sticky{
