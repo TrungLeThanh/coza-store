@@ -59,6 +59,19 @@
     }
 }
 
+@media (max-width: 739px){
+    .h2-carousel {
+        padding-left: 30px;
+    }
+    .h1-carousel {
+        padding-left: 30px;
+    }
+
+    .btn-carousel {
+        padding-left: 30px;
+    }
+}
+
 @media (max-width: 635px) {
     .h2-carousel {
         font-size: 30px;
@@ -70,16 +83,10 @@
 
 @media (max-width: 555px) {
     .h2-carousel {
-        padding-left: 30px;
         letter-spacing: 1px;
     }
     .h1-carousel {
-        padding-left: 30px;
         letter-spacing: 1px;
-    }
-
-    .btn-carousel {
-        padding-left: 30px;
     }
 }
 
