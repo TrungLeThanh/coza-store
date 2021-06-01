@@ -2,7 +2,10 @@ import React, {useState, useEffect} from 'react';
 import './Overview.css';
 import TextField from '@material-ui/core/TextField';
 import {useDispatch, useSelector} from 'react-redux';
-import { listProducts } from '../actions/productActions';;
+import { listProducts } from '../actions/productActions';
+import Grid from '@material-ui/core/Grid';
+
+
 
 const Overview = () => {
 
@@ -19,13 +22,26 @@ const Overview = () => {
     }, [dispatch]);
 
 
-    const showListProducts = () => {
-        return products.map(x =>{
-            return <h1>Â: {x.name}</h1>
-        })
-    };
-
-    console.log(products);
+    const showAllProducts = () => {
+        return (
+            <Grid container spacing={7}>
+                {   
+                    products.map((product)=>{
+                        return (
+                            <Grid item key={product._id} xs={12} md={4} lg={3}>
+                                <div className="image-style">
+                                    <button className="ui button style-btn">Quick View</button>
+                                    <img className="image-product" src={product.image} alt="" />
+                                </div>
+                                <p className="name-product">{product.name}</p>
+                                <p>$ {product.price}</p>
+                            </Grid>
+                        )
+                    })
+                }
+            </Grid>
+        )
+    }
 
 
     return (
@@ -46,7 +62,7 @@ const Overview = () => {
                     </form>
                 </div>
             </div>
-            {showListProducts()}
+            {showAllProducts()}
         </div>
     );
 };
