@@ -32,8 +32,11 @@
 
 .image-style{
     width: 100%;
-    height: 360px;
+    height: 380px;
     overflow: hidden;
+    /* border: 1px solid black; */
+    position: relative;
+    margin-top: -30px;
 }
 
 .image-product{
@@ -43,7 +46,7 @@
 }
 
 .image-product:hover{
-    transform: scale(1.1);
+    transform: scale(1.025);
 }
 
 .name-product{
@@ -54,12 +57,48 @@
     padding: 20px 0 0 0;
 }
 
-.style-btn{
-    position: absolute;
-    display: none;
+.style-btn{ 
+    position: relative;
     z-index: 1;
+    transform: translate(73%, 390px);
+    display: none;
+    border-radius: 20px !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    background: #fff !important;
+    color: black !important;
 }
 
-.image-product:hover ~ .image-style > button{
-    transform: translate(0,-20px);
+.style-btn:hover{
+    background: rgb(108, 122, 224) !important;
+    color: #fff !important;
+}
+
+.image-style:hover .style-btn{
+    transform: translate(73%, 300px);
+    transition: 0.5s;
+}
+
+
+@media (max-width: 1202px){
+    .wrap-overview{
+        padding: 10px 73px 90px 73px;
+    }
+}
+
+@media (max-width: 864px){
+    .overview-select{
+        flex-direction: column;
+    }
+
+    .list-overview{
+        padding-bottom: 20px;
+    }
+
+}
+
+@media (max-width: 739px){
+    .wrap-overview{
+        padding: 10px 30px 90px 30px;
+    }
 }
