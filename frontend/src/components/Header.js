@@ -73,8 +73,8 @@ const Header = () =>{
                         <Link to="/">
                             <img src="logo.webp" id="menu-logo" alt=""/>
                         </Link>
+                        <label id="menu-close" htmlFor="nav-mobile-input"><i style={{color: 'black'}} onClick={closeOverlay} className="fas fa-times" /></label>
                         <hr />
-                        <label id="menu-close" htmlFor="nav-mobile-input"><i onClick={closeOverlay} className="fas fa-times" /></label>
                         <Link to="/search" className="menu__item">
                             <i style={{paddingRight: '12px'}} className="fas fa-search" />Search
                         </Link>

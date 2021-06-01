@@ -55,6 +55,12 @@
     text-decoration: none;
 }
 
+#menu-close{
+    font-size: 19px;
+    right: 30px;
+    top: 40px;
+    cursor: pointer;
+}
 
 /*  */
 .header__bonus{

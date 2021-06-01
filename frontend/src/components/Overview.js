@@ -1,10 +1,32 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './Overview.css';
 import TextField from '@material-ui/core/TextField';
+import {useDispatch, useSelector} from 'react-redux';
+import { listProducts } from '../actions/productActions';;
 
 const Overview = () => {
 
     const [active, setActive] = useState(1);
+
+    const dispatch = useDispatch();
+
+    const productList = useSelector(state => state.productList);
+
+    const { loading, error, products } = productList;
+
+    useEffect(() => {
+        dispatch(listProducts());
+    }, [dispatch]);
+
+
+    const showListProducts = () => {
+        return products.map(x =>{
+            return <h1>Â: {x.name}</h1>
+        })
+    };
+
+    console.log(products);
+
 
     return (
         <div className="wrap-overview">
@@ -24,7 +46,7 @@ const Overview = () => {
                     </form>
                 </div>
             </div>
-            
+            {showListProducts()}
         </div>
     );
 };
