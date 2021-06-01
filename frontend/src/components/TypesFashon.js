@@ -49,10 +49,10 @@ const TypesFashon = () => {
         <div className="wrap-type-fashon">
             <Grid container spacing={8}>
                 {images.map(x => {
-                    return <Grid item xs={12} md={6} lg={4} key={x} >
+                    return <Grid item xs={12} md={6} lg={4} key={x.title} >
                         <div className="image-fashon">
-                            <h2 style={{position: 'relative', top: '25px', left: '25px', margin: '0', padding: '0', zIndex: '5'}}>{x.title}</h2>
-                            <p style={{position: 'relative', margin: '0', padding: '0',top: '25px', left: '25px', zIndex: '5'}}>{x.subTitle}</p>
+                            <h2 style={{position: 'relative', top: '25px', left: '25px', margin: '0', padding: '0', zIndex: '5', fontFamily: 'Poppins, sans-serif', fontWeight: '500'}}>{x.title}</h2>
+                            <p style={{position: 'relative', margin: '0', padding: '0',top: '25px', left: '25px', zIndex: '5',  fontFamily: 'Poppins, sans-serif', fontWeight: '400'}}>{x.subTitle}</p>
                             <Button data-aos="zoom-in" data-aos-duration="1500" variant="outlined" className={classes.root}>SHOP NOW</Button>
                             <img src={x.img} alt={x} className="img-fas" />
                         </div>
