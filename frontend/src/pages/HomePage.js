@@ -1,5 +1,4 @@
 import React from 'react';
-import './Homepage.css';
 import Banner from '../components/Banner';
 import TypesFashon from '../components/TypesFashon';
 import Overview from '../components/Overview';

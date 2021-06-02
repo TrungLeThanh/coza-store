@@ -1,7 +1,10 @@
 const products = [
   {
     name: 'Esprit Ruffle Shirt',
-    image: '/images/xproduct-01.webp',
+    image: '/images/product-detail-01.jpg',
+    detailOne: '/images/product-detail-01.jpg',
+    detailTwo: '/images/product-detail-02.jpg',
+    detailThree: '/images/product-detail-03.jpg',
     description:
       'Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working',
     brand: 'Apple',

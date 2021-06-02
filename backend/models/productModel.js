@@ -31,6 +31,18 @@ const ProductSchema = mongoose.Schema ({
         type: String,
         required: true,
     },
+    detailOne:{
+        type: String,
+        required: false,
+    },
+    detailTwo:{
+        type: String,
+        required: false,
+    },
+    detailThree:{
+        type: String,
+        required: false,
+    },
     brand:{
         type: String,
         required: true
