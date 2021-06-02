@@ -3,10 +3,16 @@ import './ProductDetail.css';
 import {fetchProductById} from '../actions/productActions';
 import {useDispatch, useSelector} from 'react-redux';
 import Grid from '@material-ui/core/Grid';
+import Loader from '../components/Loader';
+import Message from '../components/Message';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
 
-const ProductDetail = ({match}) => {
+const ProductDetail = ({match, history}) => {
 
     const [activeImage, setActiveImage] = useState(1);
+    const [qty, setQty] = useState(1)
 
     const dispatch = useDispatch();
 
@@ -17,11 +23,13 @@ const ProductDetail = ({match}) => {
         dispatch(fetchProductById(match.params.id));
     }, [dispatch, match]);
 
-    console.log(product)
+    const addToCartHandler = () => {
+        history.push(`/cart/${match.params.id}/?qty=${qty}`);
+    };
 
     const renderProductById = () => {
         return(
-            <Grid container style={{border: '1px solid black', padding: '30px 0 30px 0'}} spacing={0}>
+            <Grid justify="center" container style={{padding: '30px 0 30px 0', boxShadow: 'rgba(0, 0, 0, 0.05) 0px 0px 0px 1px'}} spacing={0}>
                 <Grid item xs={12} sm={3} md={2} lg={2}>
                     <div className="select-image">
                         <div className={`image-detail ${activeImage === 1 ? 'border-active' : ''}`} onClick={() => setActiveImage(1)}>
@@ -47,22 +55,39 @@ const ProductDetail = ({match}) => {
                         <p>{product.description}</p>
                         <p>Rate: {product.rating} <i style={{color: '#E9334A', paddingLeft: '5px'}} className="far fa-heart" /></p> <hr />
                         <p>Count in stock: {product.countInStock}</p> <hr />
-                        <p>Qty: </p>
+                        <p>
+                            Quantity : {
+                                <FormControl style={{width: '100px', paddingLeft: '15px'}}>
+                                    <Select
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
+                                    value={qty}
+                                    onChange={(e) => setQty(e.target.value)}
+                                    >
+                                        {[...Array(product.countInStock).keys()].map((x) => (
+                                            <MenuItem value={x + 1} key={x + 1}>
+                                                {x + 1}
+                                            </MenuItem>
+                                        ))}
+                                    </Select>
+                                </FormControl>
+                            }
+                        </p> <br />
                         <span style={{paddingRight: '18px'}}>Size:</span>
-                        <div className="ui basic buttons">
-                            <div className="ui button">M</div>
-                            <div className="ui button">L</div>
-                            <div className="ui button">S</div>
-                        </div>
-                        <br /> <br />
-                        <span style={{paddingRight: '10px'}}>Color:</span>
                         <div className="ui buttons">
                             <button className="ui red button" />
                             <button className="ui black button" />
                             <button className="ui brown button" />
                             <button className="ui grey button" />
-                        </div> <br /> <br />
-                        <button className={`ui ${product.countInStock === 0 ? 'disabled' : ''} black button`}>ADD TO CART <i style={{paddingLeft: '10px'}} className="fas fa-shopping-cart" /></button>
+                        </div>
+                        <br /> <br />
+                        <span style={{paddingRight: '10px'}}>Color:</span>
+                        <div className="ui basic buttons">
+                            <div className="ui button">M</div>
+                            <div className="ui button">L</div>
+                            <div className="ui button">S</div>
+                        </div> <br /> <br /> <br />
+                        <button onClick={addToCartHandler} className={`ui ${product.countInStock === 0 ? 'disabled' : ''} black button`}>ADD TO CART <i style={{paddingLeft: '10px'}} className="fas fa-shopping-cart" /></button>
                     </div>
                 </Grid>
             </Grid>
@@ -71,7 +96,13 @@ const ProductDetail = ({match}) => {
 
     return (
         <div className="wrap-product-detail">
-            {renderProductById()}
+            {
+                loading ?
+                <Loader /> :
+                error ?
+                <Message /> :
+                renderProductById()
+            }
         </div>
     );
 };

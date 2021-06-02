@@ -6,7 +6,7 @@ const products = [
     detailTwo: '/images/product-detail-02.jpg',
     detailThree: '/images/product-detail-03.jpg',
     description:
-      'Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working',
+      'Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat.',
     brand: 'Apple',
     category: 'woman',
     price: 89.99,
