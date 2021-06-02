@@ -95,6 +95,18 @@ const products = [
     rating: 4,
     numReviews: 12,
   },
+  {
+    name: 'Bag Classic',
+    image: '/images/bag.jpg',
+    description:
+      'Meet Echo Dot - Our most popular smart speaker with a fabric design. It is our most compact smart speaker that fits perfectly into small space',
+    brand: 'Amazon',
+    category: 'bag',
+    price: 29.99,
+    countInStock: 0,
+    rating: 4,
+    numReviews: 12,
+  },
 ]
 
 export default products;

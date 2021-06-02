@@ -5,13 +5,13 @@ import {useDispatch, useSelector} from 'react-redux';
 import { listProducts } from '../actions/productActions';
 import Grid from '@material-ui/core/Grid';
 import Loader from './Loader';
+import Message from './Message';
 
 
 
 const Overview = () => {
 
     const [active, setActive] = useState(1);
-
     const dispatch = useDispatch();
 
     const productList = useSelector(state => state.productList);
@@ -43,11 +43,12 @@ const Overview = () => {
             </Grid>
         );
     };
-    const productsWoman = () => {
+
+    const productsSelect = (type) => {
         return (
             <Grid container spacing={7}>
                 {   
-                    products.map((product)=>product.category === 'woman' ?
+                    products.map((product)=>product.category === type ?
                         <Grid style={{overflow: 'hidden'}} item key={product._id} xs={12} md={4} lg={3}>
                             <div className="image-style">
                                 <button className="ui button style-btn">Quick View</button>
@@ -63,65 +64,6 @@ const Overview = () => {
         );
     };
 
-    const productsMan = () => {
-        return (
-            <Grid container spacing={7}>
-                {   
-                    products.map((product)=>product.category === 'man' ?
-                        <Grid style={{overflow: 'hidden'}} item key={product._id} xs={12} md={4} lg={3}>
-                            <div className="image-style">
-                                <button className="ui button style-btn">Quick View</button>
-                                <img className="image-product" src={product.image} alt="" />
-                            </div>
-                            <p className="name-product">{product.name}</p>
-                            <p>$ {product.price}</p>
-                        </Grid>
-                        : ''
-                    )
-                }
-            </Grid>
-        );
-    };
-
-    const productsBag = () => {
-        return (
-            <Grid container spacing={7}>
-                {   
-                    products.map((product)=>product.category === 'bag' ?
-                        <Grid style={{overflow: 'hidden'}} item key={product._id} xs={12} md={4} lg={3}>
-                            <div className="image-style">
-                                <button className="ui button style-btn">Quick View</button>
-                                <img className="image-product" src={product.image} alt="" />
-                            </div>
-                            <p className="name-product">{product.name}</p>
-                            <p>$ {product.price}</p>
-                        </Grid>
-                        : ''
-                    )
-                }
-            </Grid>
-        );
-    };
-
-    const productsWatches = () => {
-        return (
-            <Grid container spacing={7}>
-                {   
-                    products.map((product)=>product.category === 'watches' ?
-                        <Grid style={{overflow: 'hidden'}} item key={product._id} xs={12} md={4} lg={3}>
-                            <div className="image-style">
-                                <button className="ui button style-btn">Quick View</button>
-                                <img className="image-product" src={product.image} alt="" />
-                            </div>
-                            <p className="name-product">{product.name}</p>
-                            <p>$ {product.price}</p>
-                        </Grid>
-                        : ''
-                    )
-                }
-            </Grid>
-        );
-    };
 
     return (
         <div className="wrap-overview">
@@ -132,7 +74,7 @@ const Overview = () => {
                     <button onClick={() => setActive(2)} className={`ui button ${active===2 ? 'active-color' : ''} fomat`}>Woman</button>
                     <button onClick={() => setActive(3)} className={`ui button ${active===3 ? 'active-color' : ''} fomat`}>Man</button>
                     <button onClick={() => setActive(4)} className={`ui button ${active===4 ? 'active-color' : ''} fomat`}>Bag</button>
-                    <button onClick={() => setActive(5)} className={`ui button ${active===6 ? 'active-color' : ''} fomat`}>Watches</button>
+                    <button onClick={() => setActive(5)} className={`ui button ${active===5 ? 'active-color' : ''} fomat`}>Watches</button>
                 </div>
                 <div style={{marginTop: '-20px', position: 'relative'}} className="form-search">
                     <form noValidate autoComplete="off">
@@ -146,12 +88,14 @@ const Overview = () => {
                 active === 1 ?
                 showAllProducts() :
                 active === 2 ?
-                productsWoman() :
+                productsSelect('woman') :
                 active === 3 ?
-                productsMan() : 
+                productsSelect('man') : 
                 active === 4 ?
-                productsBag() :
-                productsWatches()
+                productsSelect('bag') :
+                active === 5 ?
+                productsSelect('watches') :
+                <Message />
             }
         </div>
     );
