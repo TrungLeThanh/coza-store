@@ -46,7 +46,7 @@
 }
 
 .image-product:hover{
-    transform: scale(1.025);
+    transform: scale(1.08);
 }
 
 .name-product{
@@ -58,15 +58,17 @@
 }
 
 .style-btn{ 
-    position: relative;
+    position: absolute;
     z-index: 1;
-    transform: translate(73%, 390px);
+    transform: translateY(390px);
     display: none;
     border-radius: 20px !important;
     font-size: 15px !important;
     font-weight: 500 !important;
     background: #fff !important;
     color: black !important;
+    left: 30%;
+
 }
 
 .style-btn:hover{
@@ -75,14 +77,20 @@
 }
 
 .image-style:hover .style-btn{
-    transform: translate(73%, 300px);
+    transform: translateY(300px);
     transition: 0.5s;
 }
 
+/* RESPONSIVE */
 
 @media (max-width: 1202px){
     .wrap-overview{
         padding: 10px 73px 90px 73px;
+    }
+
+    .style-btn{ 
+        left: 27%;
+    
     }
 }
 
@@ -100,5 +108,19 @@
 @media (max-width: 739px){
     .wrap-overview{
         padding: 10px 30px 90px 30px;
+    }
+}
+
+@media (max-width:590px){
+    .wrap-overview h3{
+        font-size: 25px;
+    }
+    
+    .list-overview button{
+        font-size: 13px !important;
+    }
+
+    .fomat{
+        margin-left: -17px !important;
     }
 }
