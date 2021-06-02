@@ -6,7 +6,7 @@ import { listProducts } from '../actions/productActions';
 import Grid from '@material-ui/core/Grid';
 import Loader from './Loader';
 import Message from './Message';
-
+import {Link} from 'react-router-dom';
 
 
 const Overview = () => {
@@ -31,7 +31,9 @@ const Overview = () => {
                         return (
                             <Grid item key={product._id} xs={12} sm={6} md={4} lg={3}>
                                 <div className="image-style">
+                                    <Link to="/" >
                                     <button className="ui button style-btn">Quick View</button>
+                                    </Link>
                                     <img className="image-product" src={product.image} alt="" />
                                 </div>
                                 <p className="name-product">{product.name}</p>
@@ -51,7 +53,9 @@ const Overview = () => {
                     products.map((product)=>product.category === type ?
                         <Grid style={{overflow: 'hidden'}} item key={product._id} xs={12} md={4} lg={3}>
                             <div className="image-style">
-                                <button className="ui button style-btn">Quick View</button>
+                                <Link to="/" >
+                                    <button className="ui button style-btn">Quick View</button>
+                                </Link>
                                 <img className="image-product" src={product.image} alt="" />
                             </div>
                             <p className="name-product">{product.name}</p>
@@ -85,6 +89,8 @@ const Overview = () => {
             {
                 loading ?
                 <Loader /> :
+                error ?
+                <Message /> :
                 active === 1 ?
                 showAllProducts() :
                 active === 2 ?
@@ -93,9 +99,7 @@ const Overview = () => {
                 productsSelect('man') : 
                 active === 4 ?
                 productsSelect('bag') :
-                active === 5 ?
-                productsSelect('watches') :
-                <Message />
+                productsSelect('watches')
             }
         </div>
     );
