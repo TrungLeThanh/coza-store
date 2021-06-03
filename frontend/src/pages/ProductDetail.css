@@ -10,7 +10,7 @@
 .wrap-product-detail{
     width: 100%;
     height: 100%;
-    padding: 130px 171px 130px 171px;
+    padding: 110px 171px 130px 171px;
 }
 
 .select-image{
@@ -74,7 +74,7 @@
 
 @media (max-width: 1202px){
     .wrap-product-detail{
-        padding: 130px 71px 100px 71px;
+        padding: 110px 71px 100px 71px;
     }
 }
 
@@ -92,7 +92,7 @@
 
 @media (max-width: 739px){
     .wrap-product-detail{
-        padding: 130px 31px 100px 31px;
+        padding: 110px 31px 100px 31px;
     }
 }
 

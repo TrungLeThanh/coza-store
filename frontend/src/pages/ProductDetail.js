@@ -8,11 +8,13 @@ import Message from '../components/Message';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
+import {Link} from 'react-router-dom';
 
 const ProductDetail = ({match, history}) => {
 
     const [activeImage, setActiveImage] = useState(1);
-    const [qty, setQty] = useState(1)
+    const [qty, setQty] = useState(1);
+    const [size, setSize] = useState('M');
 
     const dispatch = useDispatch();
 
@@ -24,7 +26,7 @@ const ProductDetail = ({match, history}) => {
     }, [dispatch, match]);
 
     const addToCartHandler = () => {
-        history.push(`/cart/${match.params.id}/?qty=${qty}`);
+        history.push(`/cart/${match.params.id}/?qty=${qty}&size=${size}`);
     };
 
     const renderProductById = () => {
@@ -55,7 +57,7 @@ const ProductDetail = ({match, history}) => {
                         <p>{product.description}</p>
                         <p>Rate: {product.rating} <i style={{color: '#E9334A', paddingLeft: '5px'}} className="far fa-heart" /></p> <hr />
                         <p>Count in stock: {product.countInStock}</p> <hr />
-                        <p>
+                        <div>
                             Quantity : {
                                 <FormControl style={{width: '100px', paddingLeft: '15px'}}>
                                     <Select
@@ -72,7 +74,7 @@ const ProductDetail = ({match, history}) => {
                                     </Select>
                                 </FormControl>
                             }
-                        </p> <br />
+                        </div> <br />
                         <span style={{paddingRight: '18px'}}>Size:</span>
                         <div className="ui buttons">
                             <button className="ui red button" />
@@ -83,9 +85,9 @@ const ProductDetail = ({match, history}) => {
                         <br /> <br />
                         <span style={{paddingRight: '10px'}}>Color:</span>
                         <div className="ui basic buttons">
-                            <div className="ui button">M</div>
-                            <div className="ui button">L</div>
-                            <div className="ui button">S</div>
+                            <button onClick={() => setSize('S')} className={`ui button ${size === 'S' ? 'active' : ''}`}>S</button>
+                            <button onClick={() => setSize('M')} className={`ui button ${size === 'M' ? 'active' : ''}`}>M</button>
+                            <button onClick={() => setSize('L')} className={`ui button ${size === 'L' ? 'active' : ''}`}>L</button>
                         </div> <br /> <br /> <br />
                         <button onClick={addToCartHandler} className={`ui ${product.countInStock === 0 ? 'disabled' : ''} black button`}>ADD TO CART <i style={{paddingLeft: '10px'}} className="fas fa-shopping-cart" /></button>
                     </div>
@@ -96,6 +98,12 @@ const ProductDetail = ({match, history}) => {
 
     return (
         <div className="wrap-product-detail">
+            <div style={{marginBottom: '30px'}}>
+                <Link style={{textDecoration: 'none', color: 'back', fontWeight: 'bold'}} to='/'>
+                    Home &nbsp;{'>'}&nbsp;
+                </Link>
+                Detail
+            </div>
             {
                 loading ?
                 <Loader /> :
