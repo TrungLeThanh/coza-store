@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
+import Badge from '@material-ui/core/Badge';
+import {useSelector} from 'react-redux';
 
 const Header = () =>{
 
     const [headerSticky, setHeaderSticky] = useState(false);
     const [overlay, setOverlay] = useState(false);
+
+    const cart = useSelector(state => state.cart);
+    const {cartItems} = cart;
+
+    const qty = cartItems.reduce((acc, item) => acc + Number(item.qty), 0);
 
     const changeHeader = () =>{
         if(window.scrollY>=100){
@@ -53,13 +60,14 @@ const Header = () =>{
                     Contact
                 </Link>
             </div>
-            {/* <div className="header__bonus">
-                <span>
-                    <i style={{fontSize: '18px', paddingLeft: '35px', color: 'rgb(51, 51, 51)'}} className="fas fa-search" />
-                    <i style={{fontSize: '18px', paddingLeft: '20px', color: 'rgb(51, 51, 51)'}} className="fas fa-shopping-cart" />
-                    <i style={{fontSize: '25px', paddingLeft: '20px', color: 'rgb(51, 51, 51)'}} className="fas fa-caret-down" />
-                </span>
-            </div> */}
+            <div className="header__bonus">
+                <Link style={{textDecoration: 'none'}} to="/cart">
+                    <Badge badgeContent={qty ? qty : '0'} color="primary">
+                        <i style={{fontSize: '20px', paddingLeft: '10px'}} className="fas fa-shopping-cart"></i>
+                    </Badge>
+                </Link>
+                
+            </div>
 
             <label htmlFor="nav-mobile-input" onClick={closeOverlay} className={`${overlay ? 'header__overlay' : ''}`}> </label>
 

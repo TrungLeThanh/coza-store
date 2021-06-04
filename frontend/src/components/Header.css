@@ -68,8 +68,8 @@
 .header__bonus{
     width: 20%;
     line-height: 105px;
-    padding-left: 26px;
-    /* padding-right: 171px; */
+    padding-right: 171px;
+    text-align: right;
 }
 
 /*------------------- HEADER TABLET & Mobile------------- */
@@ -168,6 +168,10 @@
     #logo{
         position: absolute;
         padding: 43px 0 0 73px;
+    }
+
+    .header__bonus{
+        padding-right: 73px;
     }
 }
 

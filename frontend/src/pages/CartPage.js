@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, Fragment} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {addToCart} from '../actions/cartActions';
 import './CartPage.css';
@@ -34,8 +34,8 @@ const CartPage = ({match, location}) => {
                 <Grid style={{width: '100%', height: '100%'}} item lg={8}>
                 {cartItems.map((product)=>{
                     return (
-                        <>
-                        <Grid container justify="center" spacing={0}>
+                        <Fragment key={product.product}>
+                        <Grid key={product.product} container justify="center" spacing={0}>
                             <Grid item xs={4} sm={2} md={2} lg={2}>
                                 <div className="image-cart">
                                     <img src={product.image} style={{width: '100%', height: '100%'}} alt="" />
@@ -71,7 +71,7 @@ const CartPage = ({match, location}) => {
                             </Grid>
                         </Grid>
                         <hr />
-                        </>
+                        </Fragment>
                     )
                 })}
                 </Grid>
