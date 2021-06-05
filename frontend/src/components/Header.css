@@ -29,7 +29,7 @@
 /*------------- HEADER PC --------------- */
 
 .header__logo{
-    width: 8%;
+    width: 7%;
 }
 
 #logo{
@@ -39,7 +39,7 @@
 
 /*  */
 .header__list{
-    width: 72%;
+    width: 70%;
     padding-left: 200px;
 }
 
@@ -67,7 +67,7 @@
 
 /*  */
 .header__bonus{
-    width: 20%;
+    width: 23%;
     line-height: 105px;
     padding-right: 170px;
     text-align: right;
@@ -174,6 +174,21 @@
     .header__bonus{
         padding-right: 71px;
     }
+}
+
+@media (max-width: 1097px){
+    .header__logo{
+        width: 5%;
+    }
+
+    .header__bonus{
+        width: 20%;
+    }
+
+    .header__list{
+        width: 75%;
+    }
+    
 }
 
 /* Mobile & tablet */
