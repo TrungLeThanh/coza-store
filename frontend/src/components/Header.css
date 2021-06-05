@@ -23,6 +23,7 @@
     transform: translateY(20px);
     z-index: 9999;
     height: 90px;
+    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
 }
 
 /*------------- HEADER PC --------------- */
@@ -68,7 +69,7 @@
 .header__bonus{
     width: 20%;
     line-height: 105px;
-    padding-right: 171px;
+    padding-right: 170px;
     text-align: right;
 }
 
@@ -171,7 +172,7 @@
     }
 
     .header__bonus{
-        padding-right: 73px;
+        padding-right: 71px;
     }
 }
 

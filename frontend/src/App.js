@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import Footer from './components/Footer';
 import ProductDetail from './pages//ProductDetail';
 import CartPage from './pages/CartPage';
+import BackTop from './components/BackTop';
 
 const App = () => {
     return (
@@ -14,6 +15,7 @@ const App = () => {
             <Route path="/products/:id" exact component={ProductDetail} />
             <Route path="/cart/:id?" exact component={CartPage} />
             <Footer />
+            <BackTop />
         </BrowserRouter>
     );
 };

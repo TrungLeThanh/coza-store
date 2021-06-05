@@ -35,7 +35,7 @@ const CartPage = ({match, location}) => {
                 {cartItems.map((product)=>{
                     return (
                         <Fragment key={product.product}>
-                        <Grid key={product.product} container justify="center" spacing={0}>
+                        <Grid style={{background: '#F9F9F9'}} container justify="center" spacing={0}>
                             <Grid item xs={4} sm={2} md={2} lg={2}>
                                 <div className="image-cart">
                                     <img src={product.image} style={{width: '100%', height: '100%'}} alt="" />

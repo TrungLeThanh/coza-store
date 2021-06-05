@@ -49,6 +49,7 @@ const Header = () =>{
                 </Link>
                 <Link to="/" className="header__item">
                     Features
+                    <Badge style={{paddingTop: '38px'}} badgeContent={'HOT'} color="secondary" />
                 </Link>
                 <Link to="/" className="header__item">
                     Blog
