@@ -42,7 +42,7 @@ const CartPage = ({match, location}) => {
                                 </div>
                             </Grid>
                             <Grid style={{width: '100%', height: '100%', paddingTop: '40px'}} item xs={4} sm={2} md={2} lg={2}>
-                                <p style={{textAlign: 'center'}}>{product.name}</p>
+                                <Link to={`/products/${product.product}`} style={{textAlign: 'center', textDecoration: 'none'}}>{product.name}</Link>
                             </Grid>
                             <Grid style={{textAlign: 'center', lineHeight: '100px', width: '100%', height: '100px'}} item xs={4} sm={2} md={2} lg={2}>
                                 $: {product.price}
@@ -113,7 +113,11 @@ const CartPage = ({match, location}) => {
                 Cart
             </div>
             <hr />
-            {renderCart()}
+            {
+                cartItems.length !== 0 ?
+                renderCart() :
+                <img src="/images/shopping.gif" alt=""/>
+            }
         </div>
     );
 };

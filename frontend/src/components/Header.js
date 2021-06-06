@@ -8,6 +8,7 @@ const Header = () =>{
 
     const [headerSticky, setHeaderSticky] = useState(false);
     const [overlay, setOverlay] = useState(false);
+    const [active, setActive] = useState(1);
 
     const cart = useSelector(state => state.cart);
     const {cartItems} = cart;
@@ -41,23 +42,23 @@ const Header = () =>{
                 </Link>
             </div>
             <div className="header__list">
-                <Link to="/" className="header__item">
+                <Link onClick={() => setActive(1)} id={`${active === 1 ? 'active-color' : ''}`} to="/" className="header__item">
                     Home
                 </Link>
-                <Link to="/" className="header__item">
+                <Link onClick={() => setActive(2)} id={`${active === 2 ? 'active-color' : ''}`} to="/" className="header__item">
                     Shop
                 </Link>
-                <Link to="/" className="header__item">
+                <Link onClick={() => setActive(3)} id={`${active === 3 ? 'active-color' : ''}`} to="/" className="header__item">
                     Features
                     <Badge style={{paddingTop: '38px'}} badgeContent={'HOT'} color="secondary" />
                 </Link>
-                <Link to="/" className="header__item">
+                <Link onClick={() => setActive(4)} id={`${active === 4 ? 'active-color' : ''}`} to="/" className="header__item">
                     Blog
                 </Link>
-                <Link to="/" className="header__item">
+                <Link onClick={() => setActive(5)} id={`${active === 5 ? 'active-color' : ''}`} to="/" className="header__item">
                     About
                 </Link>
-                <Link to="/" className="header__item">
+                <Link onClick={() => setActive(6)} id={`${active === 6 ? 'active-color' : ''}`} to="/" className="header__item">
                     Contact
                 </Link>
             </div>

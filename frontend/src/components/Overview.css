@@ -37,7 +37,6 @@
 
 .image-style{
     width: 100%;
-    height: 380px;
     overflow: hidden;
     position: relative;
     margin-top: -30px;
@@ -64,14 +63,14 @@
 .style-btn{ 
     position: absolute;
     z-index: 1;
-    transform: translateY(390px);
+    transform: translateY(430px);
     display: none;
     border-radius: 20px !important;
     font-size: 15px !important;
     font-weight: 500 !important;
     background: #fff !important;
     color: black !important;
-    left: 30%;
+    left: 28%;
 
 }
 
@@ -81,7 +80,7 @@
 }
 
 .image-style:hover .style-btn{
-    transform: translateY(300px);
+    transform: translateY(280px);
     transition: 0.5s;
 }
 
@@ -94,9 +93,43 @@
 
     .style-btn{ 
         left: 27%;
-    
     }
 }
+
+/* BTN */
+@media (min-width:1280px) and (max-width:1620px){
+    .image-style:hover .style-btn{
+        transform: translateY(180px);
+        left: 25%;
+    }
+}
+@media (min-width:961px) and (max-width:1108px){
+    .image-style:hover .style-btn{
+        transform: translateY(230px);
+        left: 28%;
+    }
+}
+
+
+@media (min-width:860px) and (max-width:960px){
+    .style-btn{
+        transform: translateY(455px);
+    }
+
+    .image-style:hover .style-btn{
+        transform: translateY(350px);
+        left: 32%;
+    }
+}
+
+@media (min-width:600px) and (max-width:700px){
+    .image-style:hover .style-btn{
+        transform: translateY(240px);
+        left: 29%;
+    }
+}
+
+/* /BTN */
 
 @media (max-width: 864px){
     .overview-select{
@@ -127,27 +160,18 @@
     .fomat{
         margin-left: -18px !important;
     }
-    .image-style{
-        width: 100%;
-        height: 460px;
-    }
 
     .style-btn{ 
-        transform: translateY(500px);
+        transform: translateY(1000px);
         left: 35%;
-    }
+    } 
     
 }
 
-@media (max-width:417px){
-    .image-style{
-        width: 100%;
-        height: 380px;
-    }
 
-    .style-btn{ 
-        transform: translateY(390px);
-        left: 30%;
+@media (max-width:365px){
+    .image-style:hover .style-btn{
+        transform: translateY(240px);
+        left: 27%;
     }
-    
 }
