@@ -129,7 +129,7 @@
     line-height: 105px;
     position: absolute;
     right: 0;
-    padding-right: 73px;
+    padding-right: 30px;
     display: none;
     cursor: pointer;
     z-index: 2;
@@ -170,14 +170,14 @@
 /*------------------- RESPONSIVE --------------------*/
 
 /* pc */
-@media (max-width: 1202px){
+@media (max-width: 1590px){
     #logo{
         position: absolute;
-        padding: 43px 0 0 73px;
+        padding: 43px 0 0 30px;
     }
 
     .header__bonus{
-        padding-right: 71px;
+        padding-right: 30px;
     }
 }
 
@@ -209,18 +209,6 @@
     #select{
         display: block;
         margin-top: -15px;
-    }
-}
-
-/* Mobile */
-
-@media (max-width: 739px){
-    #logo{
-        padding-left: 30px;
-    }
-
-    #select{
-        padding-right: 30px;
     }
 }
 

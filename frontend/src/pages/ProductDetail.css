@@ -72,9 +72,9 @@
     
 }
 
-@media (max-width: 1202px){
+@media (max-width: 1590px){
     .wrap-product-detail{
-        padding: 110px 71px 100px 71px;
+        padding: 110px 30px 100px 30px;
     }
 }
 
@@ -87,12 +87,6 @@
 
     .image-detail{
         margin-left: 18%;
-    }
-}
-
-@media (max-width: 739px){
-    .wrap-product-detail{
-        padding: 110px 31px 100px 31px;
     }
 }
 

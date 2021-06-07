@@ -16,13 +16,7 @@
     height: 100px;
 }
 
-@media (max-width: 1202px){
-    .wrap-cart{
-        padding: 110px 73px 110px 73px;
-    }
-}
-
-@media (max-width: 739px){
+@media (max-width: 1590px){
     .wrap-cart{
         padding: 110px 30px 110px 30px;
     }
