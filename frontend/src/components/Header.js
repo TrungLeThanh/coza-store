@@ -73,7 +73,6 @@ const Header = () =>{
                         <i style={{fontSize: '23px', paddingLeft: '30px'}} className="fab fa-opencart"></i>
                     </Badge>
                 </Link>
-                
             </div>
 
             <label htmlFor="nav-mobile-input" onClick={closeOverlay} className={`${overlay ? 'header__overlay' : ''}`}> </label>

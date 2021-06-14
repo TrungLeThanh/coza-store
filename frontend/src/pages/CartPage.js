@@ -11,7 +11,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import {removeFromCart} from '../actions/cartActions';
 
 
-const CartPage = ({match, location}) => {
+const CartPage = ({match, location, history}) => {
 
     const dispatch = useDispatch();
 
@@ -67,7 +67,7 @@ const CartPage = ({match, location}) => {
                                 {product.size}
                             </Grid>
                             <Grid style={{textAlign: 'center', lineHeight: '100px', width: '100%', height: '100px'}} item xs={4} sm={2} md={2} lg={2}>
-                                <i onClick={() => aremoveFromCartHandler(product.product)} style={{cursor: 'pointer'}}className="fas fa-trash" />
+                                <i onClick={() => (aremoveFromCartHandler(product.product), history.push('/cart'))} style={{cursor: 'pointer'}}className="fas fa-trash" />
                             </Grid>
                         </Grid>
                         <hr />
@@ -116,7 +116,15 @@ const CartPage = ({match, location}) => {
             {
                 cartItems.length !== 0 ?
                 renderCart() :
-                <img src="/images/shopping.gif" alt=""/>
+                (
+                <>
+                    <h5 className="ui red tag label">Shopping now</h5><br />
+                    <div style={{textAlign: 'center'}}>
+                        <img style={{width: '70%', borderRadius: '120%'}}src="/images/shopping.gif" alt="" />
+                    </div>
+                </>
+                )
+                
             }
         </div>
     );

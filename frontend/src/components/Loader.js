@@ -1,11 +1,11 @@
 import React from 'react';
-import CircularProgress from '@material-ui/core/CircularProgress';
+// import CircularProgress from '@material-ui/core/CircularProgress';
 
 const Loader = () => {
     return (
-        // <div className="ui active centered inline loader" />
         <div style={{textAlign: 'center'}} className="bao">
-            <CircularProgress />
+            {/* <CircularProgress /> */}
+            <img style={{width: '60%'}} src="/images/loader.gif" alt="" />
         </div>
     );
 };
