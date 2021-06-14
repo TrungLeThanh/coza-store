@@ -1,3 +1,4 @@
+/* eslint-disable no-sequences */
 import React, {useEffect, Fragment} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {addToCart} from '../actions/cartActions';
@@ -118,9 +119,9 @@ const CartPage = ({match, location, history}) => {
                 renderCart() :
                 (
                 <>
-                    <h5 className="ui red tag label">Shopping now</h5><br />
+                    <Link to='/' className="ui secondary basic button"><i className="fas fa-arrow-left" />&nbsp; Shopping now</Link>
                     <div style={{textAlign: 'center'}}>
-                        <img style={{width: '70%', borderRadius: '120%'}}src="/images/shopping.gif" alt="" />
+                        <img style={{width: '70%', borderRadius: '120%', position: 'relative', marginTop: '-100px', zIndex: '-3'}} src="/images/shopping2.gif" alt="" />
                     </div>
                 </>
                 )
