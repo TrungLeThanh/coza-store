@@ -119,9 +119,11 @@ const CartPage = ({match, location, history}) => {
                 renderCart() :
                 (
                 <>
-                    <Link to='/' className="ui secondary basic button"><i className="fas fa-arrow-left" />&nbsp; Shopping now</Link>
                     <div style={{textAlign: 'center'}}>
-                        <img style={{width: '70%', borderRadius: '120%', position: 'relative', marginTop: '-100px', zIndex: '-3'}} src="/images/shopping2.gif" alt="" />
+                        <img style={{width: '30%', zIndex: '-3', position: 'relative', marginTop: '-30px'}} src="/images/shopping2.gif" alt="" />
+                        <h2>Cart is empty !</h2>
+                        <p style={{fontSize: '18px', paddingTop: '20px'}}>Please add a few items to your cart</p>
+                        <Link to='/' className="ui secondary basic button" style={{padding: '15px 30px', marginTop: '20px'}}><i className="fas fa-arrow-left" />&nbsp; SHOPPING NOW</Link>
                     </div>
                 </>
                 )

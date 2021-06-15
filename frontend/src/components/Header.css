@@ -202,13 +202,26 @@
         display: none;
     }
 
-    .header__bonus{
+    .none{
         display: none;
     }
 
     #select{
         display: block;
         margin-top: -15px;
+    }
+
+    .header__logo{
+        width: 50%;
+    }
+
+    .header__bonus{
+        width: 50%;
+        margin-right: 35px;
+    }
+
+    .header__list{
+        width: 0%;
     }
 }
 

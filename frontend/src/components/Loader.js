@@ -5,7 +5,7 @@ const Loader = () => {
     return (
         <div style={{textAlign: 'center'}} className="bao">
             {/* <CircularProgress /> */}
-            <img style={{width: '60%'}} src="/images/loader.gif" alt="" />
+            <img style={{width: '30%'}} src="/images/loader1.gif" alt="" />
         </div>
     );
 };

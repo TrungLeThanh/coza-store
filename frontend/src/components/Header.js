@@ -63,15 +63,18 @@ const Header = () =>{
                 </Link>
             </div>
             <div className="header__bonus">
-                <Link style={{textDecoration: 'none'}} to="/delivering">
-                    <Badge badgeContent={'0'} color="secondary">
-                        <i style={{fontSize: '23px'}} className="fas fa-truck"></i>
+                {/* <Link style={{textDecoration: 'none'}} to="/delivering" className="none">
+                    <Badge badgeContent={'0'} color="secondary" >
+                        <i style={{fontSize: '20px'}} className="fas fa-truck"></i>
                     </Badge>
-                </Link>
+                </Link> */}
                 <Link style={{textDecoration: 'none'}} to="/cart">
                     <Badge badgeContent={qty ? qty : '0'} color="primary">
-                        <i style={{fontSize: '23px', paddingLeft: '30px'}} className="fab fa-opencart"></i>
+                        <i style={{fontSize: '20px', paddingLeft: '30px'}} className="fab fa-opencart"></i>
                     </Badge>
+                </Link>
+                <Link to="/login" className="none"> 
+                    <i style={{fontSize: '20px', paddingLeft: '30px'}} className="fas fa-sign-in-alt" />
                 </Link>
             </div>
 
