@@ -5,7 +5,7 @@ import HomePage from './pages/HomePage';
 import Footer from './components/Footer';
 import ProductDetail from './pages//ProductDetail';
 import CartPage from './pages/CartPage';
-import BackTop from './components/BackTop';
+import BackTop from './components/BackTop'; 
 import LoginScreen from './pages/LoginScreen';
 
 const App = () => {
@@ -13,11 +13,11 @@ const App = () => {
         <BrowserRouter>
             <Header />
             <Route path="/" exact component={HomePage} />
-            <Route path="/login" strict exact component={LoginScreen} />
+            <Route path="/login" component={LoginScreen} />
             <Route path="/products/:id" exact component={ProductDetail} />
             <Route path="/cart/:id?" exact component={CartPage} />
-            <Footer />
             <BackTop />
+            <Footer />
         </BrowserRouter>
     );
 };

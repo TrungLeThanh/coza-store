@@ -1,11 +1,13 @@
 import React from 'react';
 import './Footer.css';
 import Grid from '@material-ui/core/Grid';
-import {Link} from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles'
 
 const Footer = () => {
+    const location = useLocation();
+    
     const useStyles = makeStyles({
         root: {
             background: 'rgb(108, 122, 224)',
@@ -26,7 +28,10 @@ const Footer = () => {
     const classes = useStyles();
 
     return (
-        <div className="wrap-footer">
+        <>
+        {
+        location.pathname !== "/login" && location.pathname !== "/register" ?
+        (<div className="wrap-footer">
             <Grid justify="center" container spacing={3}>
                 <Grid item xs={12} sm={6} md={6} lg={3}>
                     <div className="content-footer">
@@ -108,7 +113,10 @@ const Footer = () => {
                     </div>
                 </Grid>
             </Grid>
-        </div>
+        </div>) :
+        ''
+        }
+        </>
     );
 };
 
