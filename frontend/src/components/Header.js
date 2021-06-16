@@ -69,7 +69,7 @@ const Header = () =>{
                 </Link>
             </div>
             <div className="header__bonus">
-                <Link style={{textDecoration: 'none'}} to="/cart">
+                <Link style={{textDecoration: 'none'}} to="/login?redirect=cart">
                     <Badge badgeContent={qty ? qty : '0'} color="primary">
                         <i style={{fontSize: '20px', paddingLeft: '30px'}} className="fab fa-opencart"></i>
                     </Badge>
@@ -126,7 +126,7 @@ const Header = () =>{
             </div>
             
         </header>) :
-        ''
+        null
         }
         </>
     );

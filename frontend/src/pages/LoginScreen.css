@@ -8,7 +8,32 @@
 .wrap-login{
     width: 100%;
     height: 100vh;
-    text-align: center;
     display: flex;
-    padding: 100px 200px;
+    justify-content: center;
+    padding-top: 100px;
+    background: #EEEEEE;
+    position: fixed;
+    overflow: hidden;
 }
+
+
+
+.login-form{
+    border-radius: 15px;
+    width: 450px;
+    height: 600px;
+    box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+    background-color:#fff;
+    padding: 40px 70px;
+}
+
+.style-form{
+    border: none !important;
+    border-bottom: 2px solid rgb(108, 122, 224) !important;
+}
+
+.field{
+    margin-bottom: 40px !important;
+}
+
+
