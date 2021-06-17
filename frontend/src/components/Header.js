@@ -61,7 +61,7 @@ const Header = () =>{
                 </Link>
             </div>
             <div className="header__list">
-                <Link onClick={() => setActive(1)} id={`${active === 1 ? 'active-color' : ''}`} to="/" className="header__item">
+                <Link onClick={() => setActive(1)} id={`${location.pathname === '/' ? 'active-color' : ''}`} to="/" className="header__item">
                     Home
                 </Link>
                 <Link onClick={() => setActive(2)} id={`${active === 2 ? 'active-color' : ''}`} to="/" className="header__item">

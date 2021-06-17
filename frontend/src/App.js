@@ -7,11 +7,13 @@ import ProductDetail from './pages//ProductDetail';
 import CartPage from './pages/CartPage';
 import BackTop from './components/BackTop'; 
 import LoginScreen from './pages/LoginScreen';
+import RegisterScreen from './pages/RegisterScreen';
 
 const App = () => {
     return (
         <BrowserRouter>
             <Header />
+            <Route path="/register" exact component={RegisterScreen} />
             <Route path="/login" exact component={LoginScreen} />
             <Route path="/products/:id" exact component={ProductDetail} />
             <Route path="/cart/:id?" exact component={CartPage} />

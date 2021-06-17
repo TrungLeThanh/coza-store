@@ -26,7 +26,7 @@ const ProductDetail = ({match, history}) => {
     }, [dispatch, match]);
 
     const addToCartHandler = () => {
-        history.push(`/login?redirect=cart/${match.params.id}/?qty=${qty}&size=${size}`);
+        history.push(`/cart/${match.params.id}/?qty=${qty}&size=${size}`);
     };
 
     const renderProductById = () => {

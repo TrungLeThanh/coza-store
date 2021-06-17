@@ -23,7 +23,8 @@ const CartPage = ({match, location, history}) => {
 
     useEffect(() =>{
         dispatch(addToCart(match.params.id, params.qty, params.size));
-    }, [dispatch, match.params.id, params.qty, params.size]);
+        history.push('/cart');
+    }, [dispatch, match.params.id, params.qty, params.size, history]);
 
     const aremoveFromCartHandler = (id) => {
         dispatch(removeFromCart(id));
