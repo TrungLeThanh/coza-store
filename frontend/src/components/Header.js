@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 import './Header.css';
 import Badge from '@material-ui/core/Badge';
 import {useSelector, useDispatch} from 'react-redux';
-import { NavDropdown } from 'react-bootstrap';
 import {logout} from '../actions/userActions';
-import { LinkContainer } from 'react-router-bootstrap';
-
+import Tooltip from '@material-ui/core/Tooltip';
 
 const Header = () =>{
 
     const location = useLocation();
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const [headerSticky, setHeaderSticky] = useState(false);
     const [overlay, setOverlay] = useState(false);
@@ -48,6 +47,7 @@ const Header = () =>{
     const logoutHandler = (e) => {
         e.preventDefault()
         dispatch(logout());
+        history.push('/login');
     }
 
     return( 
@@ -82,27 +82,21 @@ const Header = () =>{
                 </Link>
             </div>
             <div className="header__bonus">
-                <Link style={{textDecoration: 'none', paddingRight: '20px'}} to="/login?redirect=cart">
+                <Link style={{textDecoration: 'none'}} to="/login?redirect=cart">
                     <Badge badgeContent={qty ? qty : '0'} color="primary">
-                        <i style={{fontSize: '20px', paddingLeft: '30px'}} className="fab fa-opencart"></i>
+                        <i style={{fontSize: '23px', paddingLeft: '30px'}} className="fab fa-opencart"></i>
                     </Badge>
                 </Link>
                 {
                     userInfor ? 
                     (
-                        // <>
-                        // <strong style={{fontWeight: '600', fontSize: '15px'}}>{userInfor.name} <i className="fas fa-caret-down"/></strong>
-                        // </>
-                        <div className="wrap-ngoai" style={{position: 'absolute', top: '0'}}>
-                            <NavDropdown title={userInfor.name} id='username'>
-                                <LinkContainer to='/profile'>
-                                    <NavDropdown.Item>Profile</NavDropdown.Item>
-                                </LinkContainer>
-                                <NavDropdown.Item onClick={logoutHandler}>
-                                    Logout
-                                </NavDropdown.Item>
-                            </NavDropdown>
-                        </div>
+                        // <span>
+                        //     <i onClick={logoutHandler} style={{fontSize: '24px', paddingLeft: '30px'}} className="fas fa-user" />
+                        //     <i className="fas fa-arrow-right" />
+                        // </span>
+                        <Tooltip title="Logout" arrow>
+                            <b onClick={logoutHandler} style={{fontSize: '18px', marginLeft: '20px', marginBottom: '20px', cursor: 'pointer'}} className="ui orange  circular label">{userInfor.name.charAt(0)}</b>
+                        </Tooltip>
                     ) :
                     (<Link to="/login" className="none"> 
                         <i style={{fontSize: '20px', paddingLeft: '30px'}} className="fas fa-sign-in-alt" />

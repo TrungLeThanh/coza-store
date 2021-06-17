@@ -70,7 +70,7 @@ const LoginScreen = ({location, history}) => {
                         <p style={{color: 'red'}}>{password.length<4 && password.length>=1 ? 'Password must be more than 4' : ''}</p>
                     </div>
                     <Link to="/">Fogot password ?</Link> <br /> <br />
-                    <button style={{borderRadius: '20px', width: '100%'}} className="ui blue button" type="submit">LOGIN<i className="arrow right icon"></i></button>
+                    <button style={{borderRadius: '20px', width: '100%', backgroundColor: 'rgb(108, 122, 224)'}} className="ui blue button" type="submit">LOGIN<i className="arrow right icon"></i></button>
                 </form> <br /> <br />
                 <p style={{textAlign: 'center'}}>Or login with</p>
                 <span style={{display: 'flex', justifyContent: 'center'}}>
