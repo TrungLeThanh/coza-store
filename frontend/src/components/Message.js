@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Message = ({message}) => {
+const Message = ({message, type}) => {
     return (
-        <div style={{height:'50px'}} className="ui teal message">
+        <div style={{height:'50px'}} className={`ui ${type ? type : 'teal'} message`}>
             <p>{message}</p>
         </div>
     );

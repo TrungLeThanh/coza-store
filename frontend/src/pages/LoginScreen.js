@@ -8,14 +8,14 @@ import Loader from '../components/Loader';
 
 const LoginScreen = ({location, history}) => {
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [password, setPassword] = useState(''); 
+    
+    const redirect = location.search ? location.search.split('=')[1] : '/';
     
     const dispatch = useDispatch();
     const userLogin = useSelector(state => state.userLogin);
 
     const { loading, error, userInfor } = userLogin;
-    
-    const redirect = location.search ? location.search.split('=')[1] : '/cart';
 
     useEffect(() => {
         if (userInfor) {
@@ -31,11 +31,11 @@ const LoginScreen = ({location, history}) => {
     
     return (
         <>
-        {error && <Message message={error} />}
-        {loading && <Loader />}
         <div className="wrap-login">
             <div className="login-form">
                 <h2 style={{textAlign: 'center', paddingBottom: '40px'}}>Welcome !</h2>
+                {error && <Message message={error} type="red"/>}
+                {loading && <Loader />}
                 <form className="ui form" onSubmit={submitHandler}>
                     <div className="field">
                         <label>Email</label>
@@ -65,9 +65,16 @@ const LoginScreen = ({location, history}) => {
                         <p style={{color: 'red'}}>{password.length<4 && password.length>=1 ? 'Password must be more than 4' : ''}</p>
                     </div>
                     <Link to="/">Fogot password ?</Link> <br /> <br />
-
                     <button style={{borderRadius: '20px', width: '100%'}} className="ui blue button" type="submit">Login<i className="arrow right icon"></i></button>
-                </form>
+                </form> <br />
+                <p style={{textAlign: 'center'}}>Or login with</p>
+                <span style={{float: 'right'}}>
+                    {`New Customer?  ${' '}`}
+                    <Link to={redirect ? `/register?redirect=${redirect}` : '/register'}>
+                        Register
+                    </Link>
+                </span>
+                
             </div>
         </div>
         </>

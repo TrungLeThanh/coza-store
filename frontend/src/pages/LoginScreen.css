@@ -14,9 +14,10 @@
     background: #EEEEEE;
     position: fixed;
     overflow: hidden;
+    background-image:linear-gradient(rgba(0, 0, 0, 0.164),rgba(10, 10, 10, 0.171)) , url('https://colorlib.com/etc/lf/Login_v5/images/bg-01.jpg');
+    background-repeat:no-repeat;
+    background-size:cover;
 }
-
-
 
 .login-form{
     border-radius: 15px;
@@ -34,6 +35,14 @@
 
 .field{
     margin-bottom: 40px !important;
+}
+
+@media (max-width: 550px){
+    .login-form{
+        width: 320px;
+        height: 500px;
+        padding: 40px 50px;
+    }
 }
 
 
