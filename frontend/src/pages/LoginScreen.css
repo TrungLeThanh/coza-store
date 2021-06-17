@@ -14,7 +14,7 @@
     background: #EEEEEE;
     position: fixed;
     overflow: hidden;
-    background-image:linear-gradient(rgba(0, 0, 0, 0.164),rgba(10, 10, 10, 0.171)) , url('https://colorlib.com/etc/lf/Login_v5/images/bg-01.jpg');
+    background-image:linear-gradient(rgba(0, 0, 0, 0.623),rgba(10, 10, 10, 0.795)) , url('https://images.pexels.com/photos/4427816/pexels-photo-4427816.jpeg?cs=srgb&dl=pexels-august-de-richelieu-4427816.jpg&fm=jpg');
     background-repeat:no-repeat;
     background-size:cover;
 }
@@ -22,10 +22,12 @@
 .login-form{
     border-radius: 15px;
     width: 450px;
-    height: 600px;
+    height: 650px;
     box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
     background-color:#fff;
     padding: 40px 70px;
+    border-top: 1px solid rgb(108, 122, 224);
+    border-bottom: 3px solid rgb(108, 122, 224);
 }
 
 .style-form{
