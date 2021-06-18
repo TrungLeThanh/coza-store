@@ -203,26 +203,28 @@
         display: none;
     }
 
-    .none{
-        display: none;
-    }
-
     #select{
         display: block;
         margin-top: -15px;
     }
 
     .header__logo{
-        width: 50%;
+        width: 45%;
     }
 
     .header__bonus{
-        width: 50%;
+        width: 55%;
         margin-right: 35px;
     }
 
     .header__list{
         width: 0%;
+    }
+}
+
+@media (max-width: 395px){
+    .none{
+        display: none;
     }
 }
 

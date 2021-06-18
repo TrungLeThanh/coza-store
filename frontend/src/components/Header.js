@@ -90,13 +90,14 @@ const Header = () =>{
                 {
                     userInfor ? 
                     (
-                        // <span>
-                        //     <i onClick={logoutHandler} style={{fontSize: '24px', paddingLeft: '30px'}} className="fas fa-user" />
-                        //     <i className="fas fa-arrow-right" />
-                        // </span>
+                        <>
+                        <Link to="/profile" className="none"> 
+                            <b style={{fontSize: '16px', marginLeft: '20px', marginBottom: '20px', cursor: 'pointer'}} className="ui grey circular label">{userInfor.name.charAt(0)}</b>
+                        </Link>
                         <Tooltip title="Logout" arrow>
-                            <b onClick={logoutHandler} style={{fontSize: '18px', marginLeft: '20px', marginBottom: '20px', cursor: 'pointer'}} className="ui orange  circular label">{userInfor.name.charAt(0)}</b>
+                            <i onClick={logoutHandler} style={{fontSize: '20px', paddingLeft: '20px', cursor: 'pointer'}} className="fas fa-sign-out-alt" />
                         </Tooltip>
+                        </>
                     ) :
                     (<Link to="/login" className="none"> 
                         <i style={{fontSize: '20px', paddingLeft: '30px'}} className="fas fa-sign-in-alt" />
