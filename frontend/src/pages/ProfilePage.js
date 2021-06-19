@@ -14,7 +14,7 @@ const ProfilePage = ({ location, history }) => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [message, setMessage] = useState(null);
 
-    const [disabled, setDisabled] = useState(true);
+    const [disabled, setDisabled] = useState(false);
 
     const dispatch = useDispatch();
 
@@ -43,34 +43,34 @@ const ProfilePage = ({ location, history }) => {
 
     const submitHandler = (e) => {
         e.preventDefault()
-            if (password !== confirmPassword) {
+        if (password !== confirmPassword) {
         setMessage('Passwords do not match')
         } else {
-            dispatch(updateUserProfile({ id: user._id, name, email, password }))
+            dispatch(updateUserProfile({ id: user._id, name, email, password, address }))
         }
     }
 
     console.log(disabled);
     const renderProfile = () => {
         return (
-            <div className="row">
-                <div className="col col-12 col-sm-12 col-md-3 col-lg-3">
+            <div className="row" style={{display: 'flex', justifyContent: 'space-between'}}>
+                <div className="col col-12 col-sm-12 col-md-3 col-lg-3" style={{boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px', padding: '30px', borderRadius: '15px'}}>
                     <span style={{display: 'flex', justifyContent: 'space-between'}}>
                         <h3>User Profile</h3>
-                        <i onClick={() => setDisabled(!disabled)} style={{paddingTop: '5px'}} className="fas fa-user-edit" />
+                        <i onClick={() => setDisabled(!disabled)} style={{paddingTop: '5px', cursor: 'pointer'}} className="fas fa-user-edit" />
                     </span>
                     <form className="ui form" onSubmit={submitHandler} >
                         <div className="field">
-                            <label>Name</label>
-                            <input type="text" name="name" 
+                            <label>Name: </label>
+                            <input style={{border: `${ disabled ? '1px solid rgb(108, 122, 224)' : '0px'}`, borderBottom: '1px solid black' }} type="text" name="name" 
                                 placeholder="Enter name" 
                                 value={name} 
                                 onChange={(e) => setName(e.target.value)} 
                             />
                         </div> 
                         <div className="field">
-                            <label>Email</label>
-                            <input type="email" name="email" 
+                            <label>Email: </label>
+                            <input style={{border: `${ disabled ? '1px solid rgb(108, 122, 224)' : '0px'}`, borderBottom: '1px solid black'}} type="email" name="email" 
                                 placeholder="Enter email" 
                                 value={email} 
                                 onChange={(e) => setEmail(e.target.value)} 
@@ -78,7 +78,7 @@ const ProfilePage = ({ location, history }) => {
                         </div>
                         <div className="field">
                             <label>Address</label>
-                            <input type="text" name="address" 
+                            <input style={{border: `${ disabled ? '1px solid rgb(108, 122, 224)' : '0px'}`, borderBottom: '1px solid black'}} type="text" name="address" 
                                 placeholder="Address" 
                                 value={address} 
                                 onChange={(e) => setAddress(e.target.value)} 
@@ -86,7 +86,7 @@ const ProfilePage = ({ location, history }) => {
                         </div>
                         <div className="field">
                             <label>Password</label>
-                            <input type="password" name="password" 
+                            <input style={{border: `${ disabled ? '1px solid rgb(108, 122, 224)' : '0px'}`, borderBottom: '1px solid black'}} type="password" name="password" 
                                 placeholder="Enter password" 
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
@@ -94,16 +94,16 @@ const ProfilePage = ({ location, history }) => {
                         </div>
                         <div className="field">
                             <label>Confirm Password</label>
-                            <input type="password" name="confirm-password" 
+                            <input style={{border: `${ disabled ? '1px solid rgb(108, 122, 224)' : '0px'}`, borderBottom: '1px solid black'}} type="password" name="confirm-password" 
                                 placeholder="Confirm password" 
                                 value={confirmPassword}
                                 onChange={(e) => setConfirmPassword(e.target.value)}
                             />
                         </div>
-                        <button className={`${!disabled ? '' : ' disabled'} ui basic button`} type="submit">Update</button>
+                        <button className="ui red button" type="submit">Update</button>
                     </form>
                 </div>
-                <div style={{paddingLeft: '30px'}} className="col col-12 col-sm-12 col-md-9 col-lg-9">
+                <div className="col col-12 col-sm-12 col-md-8 col-lg-8" style={{boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px', padding: '30px', borderRadius: '15px'}}>
                     <h3>My orders</h3>
                     <table className="ui celled table">
                         <thead>
@@ -116,7 +116,6 @@ const ProfilePage = ({ location, history }) => {
                             </tr>
                         </thead>
                         <tbody>
-                            
                         </tbody>
                     </table>
                 </div>
@@ -135,8 +134,8 @@ const ProfilePage = ({ location, history }) => {
             </div>
             {error && <Message message={message ? message : error} />}
             {success && <Message message={success ? 'success' : message} />}
-            {loading && <Loader />}
-            {renderProfile()}
+            {loading ? <Loader /> :
+            renderProfile()}
         </div>
     );
 }

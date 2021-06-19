@@ -30,6 +30,10 @@ const CartPage = ({match, location, history}) => {
         dispatch(removeFromCart(id));
     };
 
+    const checkoutHandler = () => {
+        history.push('/login?redirect=shipping')
+    }
+
     const renderCart = () => {
         return (
             <Grid container spacing={1}>
@@ -94,8 +98,8 @@ const CartPage = ({match, location, history}) => {
                             </tr>
                             <tr>
                                 <td>
-                                    <button className={`ui ${cartItems.length === 0 ? 'disabled' : ''} secondary button`} style={{width: '100%', height: '50px', borderRadius: '25px'}}>
-                                            <i style={{paddingRight: '10px'}} className="fas fa-shopping-cart" />PROCEED TO CHECKOUT
+                                    <button onClick={checkoutHandler} className={`ui ${cartItems.length === 0 ? 'disabled' : ''} secondary button`} style={{width: '100%', height: '50px', borderRadius: '25px'}}>
+                                        <i  style={{paddingRight: '10px'}} className="fas fa-shopping-cart" />PROCEED TO CHECKOUT
                                     </button>
                                 </td>
                             </tr>
@@ -123,7 +127,7 @@ const CartPage = ({match, location, history}) => {
                     <div style={{textAlign: 'center'}}>
                         <img style={{width: '50%', zIndex: '-3', position: 'relative', marginTop: '-30px'}} src="/images/cart-empty.png" alt="" />
                         <h2 style={{marginTop: '-65px', position: 'relative'}}>Cart is empty !</h2>
-                        <p style={{fontSize: '18px', paddingTop: '20px'}}>Please add a few items to your cart <Link style={{fontWeight: 'bold', color: 'rgb(108, 122, 224)', textDecoration: 'none'}} to="/">Shopping now</Link></p>
+                        <p style={{fontSize: '18px', paddingTop: '20px'}}>Please add a few items to your cart <Link style={{fontWeight: 'bold', color: 'rgb(108, 122, 224)', textDecoration: 'none'}} to="/shop">Shopping now</Link></p>
                     </div>
                 </>
                 )

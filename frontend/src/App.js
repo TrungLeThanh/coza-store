@@ -9,11 +9,13 @@ import BackTop from './components/BackTop';
 import LoginScreen from './pages/LoginScreen';
 import RegisterScreen from './pages/RegisterScreen';
 import ProfilePage from './pages/ProfilePage';
+import ShopPage from './pages/ShopPage';
 
 const App = () => {
     return (
         <BrowserRouter>
             <Header />
+            <Route path="/shop" exact component={ShopPage} />
             <Route path="/profile" exact component={ProfilePage} />
             <Route path="/register" exact component={RegisterScreen} />
             <Route path="/login" exact component={LoginScreen} />

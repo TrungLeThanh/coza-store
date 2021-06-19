@@ -1,16 +1,16 @@
 import React, {useState, useEffect} from 'react';
-import './Overview.css';
+import '../components/Overview.css';
 import TextField from '@material-ui/core/TextField';
 import {useDispatch, useSelector} from 'react-redux';
 import { listProducts } from '../actions/productActions';
 import Grid from '@material-ui/core/Grid';
-import Loader from './Loader';
-import Message from './Message';
+import Loader from '../components/Loader';
+import Message from '../components/Message';
 import {Link} from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
-import '../pages/ShopPage.css';
+import './ShopPage.css';
 
-const Overview = () => {
+const ShopPage = () => {
 
     const [active, setActive] = useState(1);
 
@@ -98,8 +98,13 @@ const Overview = () => {
 
 
     return (
-        <div className="wrap-overview">
-            <h3>Product Overview</h3>
+        <div className="wrap-overview" style={{paddingTop: '110px'}}>
+            <div style={{marginBottom: '30px'}}>
+                <Link style={{textDecoration: 'none', color: 'back', fontWeight: 'bold'}} to='/'>
+                    Home &nbsp;{'>'}&nbsp;
+                </Link>
+                Shop
+            </div>
             <div className="overview-select">
                 <div className="list-overview">
                     <button onClick={() => setActive(1)} style={{paddingLeft: '0'}} className={`ui button ${active===1 ? 'active-color' : ''}`}>All products</button>
@@ -142,4 +147,4 @@ const Overview = () => {
     );
 };
 
-export default Overview;
+export default ShopPage;
