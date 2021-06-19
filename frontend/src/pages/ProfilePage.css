@@ -1,0 +1,10 @@
+.wrap-profile{
+    padding: 110px 173px;
+}
+
+@media (max-width: 1590px){
+    .wrap-profile{
+        padding: 110px 31px;
+    }
+    
+}

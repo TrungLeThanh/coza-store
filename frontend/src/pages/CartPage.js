@@ -69,7 +69,7 @@ const CartPage = ({match, location, history}) => {
                                 {product.size}
                             </Grid>
                             <Grid style={{textAlign: 'center', lineHeight: '100px', width: '100%', height: '100px'}} item xs={4} sm={2} md={2} lg={2}>
-                                <i onClick={() => (aremoveFromCartHandler(product.product), history.push('/cart'))} style={{cursor: 'pointer'}}className="fas fa-trash" />
+                                <i onClick={() => (aremoveFromCartHandler(product.product), history.push('/cart'))} style={{cursor: 'pointer'}}className="fas fa-times" />
                             </Grid>
                         </Grid>
                         <hr />
@@ -121,10 +121,9 @@ const CartPage = ({match, location, history}) => {
                 (
                 <>
                     <div style={{textAlign: 'center'}}>
-                        <img style={{width: '30%', zIndex: '-3', position: 'relative', marginTop: '-30px'}} src="/images/shopping2.gif" alt="" />
-                        <h2>Cart is empty !</h2>
-                        <p style={{fontSize: '18px', paddingTop: '20px'}}>Please add a few items to your cart</p>
-                        <Link to='/' className="ui secondary basic button" style={{padding: '15px 30px', marginTop: '20px'}}><i className="fas fa-arrow-left" />&nbsp; SHOPPING NOW</Link>
+                        <img style={{width: '50%', zIndex: '-3', position: 'relative', marginTop: '-30px'}} src="/images/cart-empty.png" alt="" />
+                        <h2 style={{marginTop: '-65px', position: 'relative'}}>Cart is empty !</h2>
+                        <p style={{fontSize: '18px', paddingTop: '20px'}}>Please add a few items to your cart <Link style={{fontWeight: 'bold', color: 'rgb(108, 122, 224)', textDecoration: 'none'}} to="/">Shopping now</Link></p>
                     </div>
                 </>
                 )
