@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrap-step{
+    padding: 0 173px;
+}
+
+@media (max-width: 1140px){
+    .wrap-step{
+        padding: 0 31px;
+    }
+}
+
+@media (max-width: 783px){
+    .wrap-step{
+        padding: 0 !important;
+    }
+}

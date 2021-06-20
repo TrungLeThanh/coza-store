@@ -2,7 +2,7 @@ import React from 'react';
 import './Banner.css';
 import { Carousel, Image } from 'react-bootstrap';
 import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles';
 
 const Banner = () => {
 

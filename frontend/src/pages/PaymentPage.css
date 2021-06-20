@@ -1,0 +1,18 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrap-shipping{
+    width: 100%;
+    height: 100vh;
+    padding: 110px 173px;
+}
+
+
+@media (max-width: 1590px){
+    .wrap-shipping{
+        padding: 110px 31px;
+    }
+}
