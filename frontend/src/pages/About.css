@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrap-about{
+    width: 100%;
+    height: 100%;
+    margin-top: 90px;
+    /* min-height: 100vh; */
+    padding-bottom: 200px;
+}
+
+.banner-about{
+    width: 100%;
+    height: 270px;
+    text-align: center;
+    background-image:linear-gradient(rgba(0, 0, 0, 0.164),rgba(10, 10, 10, 0.171)) , url('https://preview.colorlib.com/theme/cozastore/images/xbg-01.jpg.pagespeed.ic.2e1HWxQapm.webp');
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+
+.content-about-1{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 85px 171px;
+}
+
+.about-text{
+    width: 60%;
+    height: 100%;
+    padding-right: 50px;
+}
+
+.about-text h3{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+}
+
+.about-text p{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: rgb(136, 136, 136);
+}
+
+.about-image{
+    width:40%;
+    height: 100%;
+}
+
+.border{
+    width: 370px;
+    height: 375px;
+    box-shadow: rgba(161, 161, 161, 0.4) 0px 0px 0px 3px, rgba(214, 214, 214, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.61) 0px 2px 0px inset;
+    position: absolute;
+    right: 250px;
+}
+
+.img-about{
+    transition: 1s;
+}
+
+.img-about:hover{
+    transform: scale(1.03);
+}
+
+@media (max-width: 1590px){
+    .content-about-1{
+        padding: 85px 31px;
+    }
+    
+    .border{
+        right: 31px;
+    }
+}
+
+@media (max-width: 890px){
+    .content-about-1{
+        display: flex;
+    }
+
+    .about-text{
+        width: 100%;
+        height: 100%;
+        padding-right: 0px;
+    }
+
+    .about-image{
+        display: none;
+    }
+    .wrap-about{
+        padding-bottom: 100px;
+    }
+}

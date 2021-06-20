@@ -12,11 +12,13 @@ import ProfilePage from './pages/ProfilePage';
 import ShopPage from './pages/ShopPage';
 import ShippingPage from './pages/ShippingPage';
 import PlaceOrderPage from './pages/PlaceOrderPage';
+import About from './pages/About';
 
 const App = () => {
     return (
         <BrowserRouter>
             <Header />
+            <Route path="/about" exact component={About} />
             <Route path="/placeorder" exact component={PlaceOrderPage} />
             <Route path="/shipping" exact component={ShippingPage} />
             <Route path="/shop" exact component={ShopPage} />

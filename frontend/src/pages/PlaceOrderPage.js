@@ -41,6 +41,7 @@ const PlaceOrderPage = ({history}) => {
             <Grid container spacing={1}>
                 <Grid style={{width: '100%', height: '100%'}} item lg={8}>
                     <h4 style={{paddingTop: '20px'}}>SHIPPING</h4>
+                    <span><Link to="/shipping" style={{float: 'right', textDecoration: 'none'}} className="fas fa-edit" /></span>
                     <p style={{fontSize: '16px', paddingTop: '10px'}}>
                         <strong>Address: </strong>
                         {cart.shippingAddress.address}, {cart.shippingAddress.city}{' '}
@@ -49,6 +50,7 @@ const PlaceOrderPage = ({history}) => {
                     </p>
                     <hr />
                     <h4 style={{paddingTop: '20px'}}>Payment</h4>
+                    <span><Link to="/shipping" style={{float: 'right', textDecoration: 'none'}} className="fas fa-edit" /></span>
                     <p style={{fontSize: '16px', paddingTop: '10px'}}>
                         <strong>Method: </strong>
                         {cart.paymentMethod}
