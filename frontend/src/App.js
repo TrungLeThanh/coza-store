@@ -11,13 +11,13 @@ import RegisterScreen from './pages/RegisterScreen';
 import ProfilePage from './pages/ProfilePage';
 import ShopPage from './pages/ShopPage';
 import ShippingPage from './pages/ShippingPage';
-import PaymentPage from './pages/PaymentPage';
+import PlaceOrderPage from './pages/PlaceOrderPage';
 
 const App = () => {
     return (
         <BrowserRouter>
             <Header />
-            <Route path="/payment" exact component={PaymentPage} />
+            <Route path="/placeorder" exact component={PlaceOrderPage} />
             <Route path="/shipping" exact component={ShippingPage} />
             <Route path="/shop" exact component={ShopPage} />
             <Route path="/profile" exact component={ProfilePage} />

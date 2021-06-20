@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
-import {saveShippingAddress} from '../actions/cartActions';
+import {saveShippingAddress, savePaymentMethod} from '../actions/cartActions';
 import './ShippingPage.css';
 import Step from '../components/Step';
+import {Form} from 'react-bootstrap';
 
 const ShippingPage = ({history}) => {
 
@@ -20,8 +21,12 @@ const ShippingPage = ({history}) => {
     const submitHandler = (e) => {
         e.preventDefault();
         dispatch(saveShippingAddress({address, city, postalCode, country}));
-        history.push('/payment')
+        dispatch(savePaymentMethod(paymentMethod));
+        history.push('/placeorder');
     };
+
+    // test
+    const [paymentMethod, setPaymentMethod] = useState('PayPal');
 
     const renderFormShipping = () => {
         return (
@@ -60,6 +65,22 @@ const ShippingPage = ({history}) => {
                         placeholder="Country"
                         value={country}
                         onChange={(e) => setCountry(e.target.value)}
+                    />
+                    <br /> <br />
+                    <label>Select method payment:</label> <br /> <br />
+                    <Form.Check
+                    type="radio"
+                    label="PayPal or Credit Card"
+                    value='PayPal'
+                    onChange={(e) => setPaymentMethod(e.target.value)}
+                    inline
+                    />
+                    <Form.Check
+                        type="radio"
+                        label="Ship Code"
+                        value='Ship'
+                        onChange={(e) => setPaymentMethod(e.target.value)}
+                        inline
                     />
                     <br /> <br />
                     <button className="ui black button" type="submit">Continue</button>

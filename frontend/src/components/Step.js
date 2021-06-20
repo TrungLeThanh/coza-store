@@ -5,7 +5,7 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import {Link} from 'react-router-dom';
 
-const CheckOutStep = ({ step1, step2, step3, step4 }) => {
+const CheckOutStep = ({ step1, step2, step3 }) => {
 
     return (
         <div className="wrap-step">
@@ -24,7 +24,7 @@ const CheckOutStep = ({ step1, step2, step3, step4 }) => {
                     <StepLabel>
                         {
                             step2 ?
-                            <Link style={{textDecoration: 'none'}} to="/login" >Shipping</Link> :
+                            <Link style={{textDecoration: 'none'}} to="/shipping" >Shipping</Link> :
                             <p>Shipping</p>
                         }
                     </StepLabel>
@@ -33,15 +33,6 @@ const CheckOutStep = ({ step1, step2, step3, step4 }) => {
                     <StepLabel>
                         {
                             step3 ?
-                            <Link style={{textDecoration: 'none'}} to="/login" >Payment</Link> :
-                            <p>Payment</p>
-                        }
-                    </StepLabel>
-                </Step>
-                <Step active={step4 ? true : false}>
-                    <StepLabel>
-                        {
-                            step4 ?
                             <Link style={{textDecoration: 'none'}} to="/login" >Place Order</Link> :
                             <p>Place Order</p>
                         }
