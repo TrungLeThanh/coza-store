@@ -14,11 +14,13 @@ import ShippingPage from './pages/ShippingPage';
 import PlaceOrderPage from './pages/PlaceOrderPage';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Blog from './pages/Blog';
 
 const App = () => {
     return (
         <BrowserRouter>
             <Header />
+            <Route path="/blog" exact component={Blog} />
             <Route path="/contact" exact component={Contact} />
             <Route path="/about" exact component={About} />
             <Route path="/placeorder" exact component={PlaceOrderPage} />

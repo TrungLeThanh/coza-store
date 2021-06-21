@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrap-blog{
+    width: 100%;
+    height: 100%;
+    margin-top: 90px;
+    min-height: 100vh;
+}
+
+.banner-blog{
+    width: 100%;
+    height: 270px;
+    text-align: center;
+    background-image:linear-gradient(rgba(0, 0, 0, 0.164),rgba(10, 10, 10, 0.171)) , url('https://preview.colorlib.com/theme/cozastore/images/xbg-01.jpg.pagespeed.ic.2e1HWxQapm.webp');
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+
+#blog-image{
+    padding: 0 0px;
+    overflow: hidden;
+}
+
+.image2{
+    margin-top: 60px;
+}
+
+#sub{
+    /* border: 1px solid black; */
+    padding: 20px 0px 0px 90px;
+}
+
+.hover-img{
+    transition: 1s;
+}
+
+.hover-img:hover{
+    transform: scale(1.04);
+}
+
+.categories p{
+    font-size: 16px;
+}
+
+.featured{
+    margin-top: 100px;
+}
+
+.archive{
+    margin-top: 100px;
+}
+
+.tags{
+    margin-top: 100px;
+}
+
+@media (max-width: 975px){
+    #sub{
+        padding: 80px 0px 0px 20px;
+    }
+}

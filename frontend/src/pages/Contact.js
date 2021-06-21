@@ -9,7 +9,7 @@ const Contact = () => {
             </div>
             <div className="row">
                 <div id="style-form" className="col-xs-12 col-sm-12 md-6 col-lg-6">
-                    <h4 style={{textAlign: 'center'}}>Send Us A Message</h4> <br />
+                    <h3 style={{textAlign: 'center'}}>Send Us A Message</h3> <br />
                     <form className="ui form">
                         <div className="field">
                             <div className="ui left icon input">
