@@ -53,7 +53,7 @@ const ProfilePage = ({ location, history }) => {
     console.log(disabled);
     const renderProfile = () => {
         return (
-            <div className="row" style={{display: 'flex', justifyContent: 'space-between'}}>
+            <div className="row" style={{display: 'flex', justifyContent: 'space-between', padding: '0px'}}>
                 <div className="col col-12 col-sm-12 col-md-3 col-lg-3" style={{boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px', padding: '30px', borderRadius: '15px'}}>
                     <span style={{display: 'flex', justifyContent: 'space-between'}}>
                         <h3>User Profile</h3>

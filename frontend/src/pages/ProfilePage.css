@@ -1,5 +1,6 @@
 .wrap-profile{
     padding: 110px 173px;
+    min-height: 100vh;
 }
 
 @media (max-width: 1590px){
