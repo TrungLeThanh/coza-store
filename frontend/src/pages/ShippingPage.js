@@ -17,6 +17,7 @@ const ShippingPage = ({history}) => {
     const [city, setCity] = useState(shippingAddress.city);
     const [postalCode, setPostalCode] = useState(shippingAddress.postalCode);
     const [country, setCountry] = useState(shippingAddress.country);
+    const [paymentMethod, setPaymentMethod] = useState('PayPal');
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -26,7 +27,7 @@ const ShippingPage = ({history}) => {
     };
 
     // test
-    const [paymentMethod, setPaymentMethod] = useState('PayPal');
+    
 
     const renderFormShipping = () => {
         return (
