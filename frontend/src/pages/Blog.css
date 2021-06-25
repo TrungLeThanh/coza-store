@@ -32,8 +32,7 @@
 }
 
 #sub{
-    /* border: 1px solid black; */
-    padding: 20px 0px 0px 90px;
+    padding: 0px 0px 0px 90px;
 }
 
 .hover-img{
@@ -41,7 +40,7 @@
 }
 
 .hover-img:hover{
-    transform: scale(1.04);
+    transform: scale(1.02);
 }
 
 .categories p{
@@ -62,6 +61,12 @@
 
 @media (max-width: 975px){
     #sub{
-        padding: 80px 0px 0px 20px;
+        padding: 0px 0px 0px 20px;
+    }
+}
+
+@media (max-width: 770px){
+    #sub{
+        padding: 60px 0px 0px 0px;
     }
 }

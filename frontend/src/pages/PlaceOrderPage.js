@@ -1,24 +1,44 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useEffect} from 'react';
 import './PlaceOrderPage.css';
 import { useDispatch, useSelector } from 'react-redux';
 import Step from '../components/Step';
 import {Link} from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
+import {createOrder} from '../actions/orderActions';
+import Message from '../components/Message';
 
 const PlaceOrderPage = ({history}) => {
 
+    const dispatch = useDispatch();
     const cart = useSelector((state) => state.cart);
-
+    
     if (!cart.shippingAddress.address) {
         history.push('/shipping');
     };
 
     const placeOrderHandler = () => {
-        alert('Place Order');
+        dispatch(
+            createOrder({
+                orderItems: cart.cartItems,
+                shippingAddress: cart.shippingAddress,
+                paymentMethod: cart.paymentMethod,
+                itemsPrice: cart.itemsPrice,
+                shippingPrice: cart.shippingPrice,
+                taxPrice: cart.taxPrice,
+                totalPrice: cart.totalPrice,
+            })
+        );
     };
+    
+    const orderCreate = useSelector((state) => state.orderCreate);
+    const { order, success, error } = orderCreate;
+
+    useEffect(() => {
+        if(success) {
+            history.push(`/orders/${order._id}`);
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [history, success]);
 
     //   Calculate prices
     const addDecimals = (num) => {
@@ -115,12 +135,13 @@ const PlaceOrderPage = ({history}) => {
                                     </span>
                                 </td>
                             </tr>
-                            <tr> <br />
-                                <button onClick={placeOrderHandler} className={`ui ${cart.cartItems.length === 0 ? 'disabled' : ''} secondary button`} style={{width: '100%', height: '50px', borderRadius: '25px'}}>
-                                    <i  style={{paddingRight: '10px'}} className="fas fa-shopping-cart" />PLACE ORDER
-                                </button>
+                            <tr>
+                                {error && <Message type='red' message={error}/> }
                             </tr>
                         </tbody>
+                        <button onClick={placeOrderHandler} className={`ui ${cart.cartItems.length === 0 ? 'disabled' : ''} secondary button`} style={{width: '100%', height: '50px', borderRadius: '25px', marginTop: '20px'}}>
+                            <i  style={{paddingRight: '10px'}} className="fas fa-shopping-cart" />PLACE ORDER
+                        </button>
                     </table>
                 </Grid>
             </Grid>
