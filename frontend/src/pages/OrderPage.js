@@ -19,7 +19,6 @@ const OrderPage = ({match}) => {
     const cart = useSelector(state => state.cart);
 
     if (!loading) {
-        //   Calculate prices
         const addDecimals = (num) => {
           return (Math.round(num * 100) / 100).toFixed(2)
         }
@@ -31,7 +30,10 @@ const OrderPage = ({match}) => {
 
 
     useEffect(() => {
-        dispatch(getOrderDetails(orderId));
+        if(!order || orderId){
+            dispatch(getOrderDetails(orderId));
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [dispatch, orderId]);
 
     const renderOrder = () => {
@@ -65,7 +67,7 @@ const OrderPage = ({match}) => {
                         {cart.paymentMethod}
                     </p>
                     {
-                        !order.isPaid ? <Message type="red" message="Not paid !" /> : <Message message="Paid on" />
+                        !order.isPaid ? <Message type="red" message="Unpaid !" /> : <Message message="Paid on" />
                     }
                     <hr />
                     <h4 style={{paddingTop: '20px'}}>Order Items</h4>

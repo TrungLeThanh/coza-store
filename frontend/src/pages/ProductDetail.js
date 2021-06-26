@@ -76,14 +76,14 @@ const ProductDetail = ({match, history}) => {
                             }
                         </div> <br />
                         <span style={{paddingRight: '18px'}}>Size:</span>
-                        <div className="ui buttons">
+                        {/* <div className="ui buttons">
                             <button className="ui red button" />
                             <button className="ui black button" />
                             <button className="ui brown button" />
                             <button className="ui grey button" />
                         </div>
                         <br /> <br />
-                        <span style={{paddingRight: '10px'}}>Color:</span>
+                        <span style={{paddingRight: '10px'}}>Color:</span> */}
                         <div className="ui basic buttons">
                             <button onClick={() => setSize('S')} className={`ui button ${size === 'S' ? 'active' : ''}`}>S</button>
                             <button onClick={() => setSize('M')} className={`ui button ${size === 'M' ? 'active' : ''}`}>M</button>

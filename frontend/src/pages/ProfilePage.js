@@ -5,6 +5,7 @@ import Loader from '../components/Loader';
 import './ProfilePage.css';
 import {Link} from 'react-router-dom';    
 import { getUserDetails, updateUserProfile } from '../actions/userActions';
+import { Table } from 'react-bootstrap';
 
 const ProfilePage = ({ location, history }) => {
     const [name, setName] = useState('');
@@ -54,7 +55,7 @@ const ProfilePage = ({ location, history }) => {
     const renderProfile = () => {
         return (
             <div className="row" style={{display: 'flex', justifyContent: 'space-between', padding: '0px'}}>
-                <div className="col col-12 col-sm-12 col-md-3 col-lg-3" style={{boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px', padding: '30px', borderRadius: '15px'}}>
+                <div className="col col-12 col-sm-12 col-md-4 col-lg-3" style={{boxShadow: 'rgba(0, 0, 0, 0.05) 0px 0px 0px 1px', padding: '30px', borderRadius: '15px'}}>
                     <span style={{display: 'flex', justifyContent: 'space-between'}}>
                         <h3>User Profile</h3>
                         <i onClick={() => setDisabled(!disabled)} style={{paddingTop: '5px', cursor: 'pointer'}} className="fas fa-user-edit" />
@@ -103,9 +104,9 @@ const ProfilePage = ({ location, history }) => {
                         <button className="ui red button" type="submit">Update</button>
                     </form>
                 </div>
-                <div className="col col-12 col-sm-12 col-md-8 col-lg-8" style={{boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px', padding: '30px', borderRadius: '15px'}}>
+                <div className="col col-12 col-sm-12 col-md-8 col-lg-9" style={{boxShadow: 'rgba(0, 0, 0, 0.05) 0px 0px 0px 1px', padding: '30px 50px 30px 50px', borderRadius: '15px'}}>
                     <h3>My orders</h3>
-                    <table className="ui celled table">
+                    <Table striped bordered hover responsive className='table-sm'>
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -113,14 +114,12 @@ const ProfilePage = ({ location, history }) => {
                                 <th>TOTAL</th>
                                 <th>PAID</th>
                                 <th>DELIVERED</th>
+                                <th></th>
                             </tr>
                         </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
+                    </Table>
                 </div>
             </div>
-            
         );
     }
 
