@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import {createOrder} from '../actions/orderActions';
 import Message from '../components/Message';
+import { ORDER_CREATE_RESET } from '../contains/orderContains';
 
 const PlaceOrderPage = ({history}) => {
 
@@ -36,6 +37,7 @@ const PlaceOrderPage = ({history}) => {
     useEffect(() => {
         if(success) {
             history.push(`/orders/${order._id}`);
+            dispatch({type: ORDER_CREATE_RESET});
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [history, success]);

@@ -6,6 +6,7 @@ import './ProfilePage.css';
 import {Link} from 'react-router-dom';    
 import { getUserDetails, updateUserProfile } from '../actions/userActions';
 import { Table } from 'react-bootstrap';
+import { listMyOrders } from '../actions/orderActions';
 
 const ProfilePage = ({ location, history }) => {
     const [name, setName] = useState('');
@@ -28,12 +29,16 @@ const ProfilePage = ({ location, history }) => {
     const userUpdateProfile = useSelector((state) => state.userUpdatProfile);
     const { success } = userUpdateProfile;
 
+    const orderListMy = useSelector((state) => state.orderListMy);
+    const { loading: loadingOrders, error: errorOrders, orders } = orderListMy;
+
     useEffect(() => {
         if (!userInfor) {
             history.push('/login');
         } else {
         if (!user.name) {
             dispatch(getUserDetails('profile'));
+            dispatch(listMyOrders());
         } else {
             setName(user.name);
             setEmail(user.email);
@@ -51,10 +56,18 @@ const ProfilePage = ({ location, history }) => {
         }
     }
 
-    console.log(disabled);
-    const renderProfile = () => {
-        return (
-            <div className="row" style={{display: 'flex', justifyContent: 'space-between', padding: '0px'}}>
+    return (
+        <div className="wrap-profile">
+            <div style={{marginBottom: '30px'}}>
+                <Link style={{textDecoration: 'none', color: 'back', fontWeight: 'bold'}} to='/'>
+                    Home &nbsp;{'>'}&nbsp;
+                </Link>
+                Profile
+            </div>
+            {error && <Message message={message ? message : error} />}
+            {success && <Message message={success ? 'success' : message} />}
+            {loading ? <Loader /> :
+                (<div className="row" style={{display: 'flex', justifyContent: 'space-between', padding: '0px'}}>
                 <div className="col col-12 col-sm-12 col-md-4 col-lg-3" style={{boxShadow: 'rgba(0, 0, 0, 0.05) 0px 0px 0px 1px', padding: '30px', borderRadius: '15px'}}>
                     <span style={{display: 'flex', justifyContent: 'space-between'}}>
                         <h3>User Profile</h3>
@@ -106,8 +119,13 @@ const ProfilePage = ({ location, history }) => {
                 </div>
                 <div className="col col-12 col-sm-12 col-md-8 col-lg-9" style={{boxShadow: 'rgba(0, 0, 0, 0.05) 0px 0px 0px 1px', padding: '30px 50px 30px 50px', borderRadius: '15px'}}>
                     <h3>My orders</h3>
-                    <Table striped bordered hover responsive className='table-sm'>
-                        <thead>
+                    {
+                        loadingOrders ?
+                        <Loader /> :
+                        errorOrders ?   
+                        <Message type="red" message={errorOrders}>{errorOrders}</Message> : (
+                        <Table striped bordered hover responsive className='table-sm'>
+                            <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>DATE</th>
@@ -116,25 +134,41 @@ const ProfilePage = ({ location, history }) => {
                                 <th>DELIVERED</th>
                                 <th></th>
                             </tr>
-                        </thead>
-                    </Table>
+                            </thead>
+                            <tbody>
+                            {orders.map((order) => (
+                                <tr key={order._id}>
+                                <td>{order._id}</td>
+                                <td>{order.createdAt.substring(0, 10)}</td>
+                                <td>{order.totalPrice}</td>
+                                <td>
+                                    {order.isPaid ? (
+                                    order.paidAt.substring(0, 10)
+                                    ) : (
+                                    <i className='fas fa-times' style={{ color: 'red' }}></i>
+                                    )}
+                                </td>
+                                <td>
+                                    {order.isDelivered ? (
+                                    order.deliveredAt.substring(0, 10)
+                                    ) : (
+                                    <i className='fas fa-times' style={{ color: 'red' }}></i>
+                                    )}
+                                </td>
+                                <td>
+                                    <Link to={`/orders/${order._id}`}>
+                                        Details
+                                    </Link>
+                                </td>
+                                </tr>
+                            ))}
+                            </tbody>
+                        </Table>
+                        )
+                    }
                 </div>
-            </div>
-        );
-    }
-
-    return (
-        <div className="wrap-profile">
-            <div style={{marginBottom: '30px'}}>
-                <Link style={{textDecoration: 'none', color: 'back', fontWeight: 'bold'}} to='/'>
-                    Home &nbsp;{'>'}&nbsp;
-                </Link>
-                Profile
-            </div>
-            {error && <Message message={message ? message : error} />}
-            {success && <Message message={success ? 'success' : message} />}
-            {loading ? <Loader /> :
-            renderProfile()}
+            </div>)
+            }
         </div>
     );
 }
