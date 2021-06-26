@@ -81,8 +81,11 @@ const OrderPage = ({match}) => {
                                                 <img src={item.image} style={{width: '50%', height: '50%'}} alt="" />
                                             </div>
                                         </Grid>
-                                        <Grid item xs={8} sm={8} md={8} lg={8}>
+                                        <Grid item xs={6} sm={5} md={5} lg={5}>
                                             <Link to={`/products/${item.product}`} style={{textDecoration: 'none'}}>{item.name}</Link>
+                                        </Grid>
+                                        <Grid item xs={2} sm={3} md={3} lg={3}>
+                                            <p>{item.size}</p>
                                         </Grid>
                                         <Grid item xs={2} sm={3} md={3} lg={3}>
                                             <p>{item.qty} x ${item.price} = ${(item.qty * item.price).toFixed(2)}.</p>
