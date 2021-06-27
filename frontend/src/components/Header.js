@@ -97,7 +97,7 @@ const Header = () =>{
                             <Dropdown.Menu>
                                 <Dropdown.Item href="/profile">Profile</Dropdown.Item>
                                 <Dropdown.Item href="/admin/userlist">Users</Dropdown.Item>
-                                <Dropdown.Item href="#/action-2">Products</Dropdown.Item>
+                                <Dropdown.Item href="/admin/productlist">Products</Dropdown.Item>
                                 <Dropdown.Item href="#/action-3">Orders</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>

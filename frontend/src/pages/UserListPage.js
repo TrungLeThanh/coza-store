@@ -57,7 +57,7 @@ const UserListPage = ({history}) => {
                         <th style={{fontSize: '15px'}}><i className="fas fa-key" style={{paddingRight: '10px'}} />ID</th>
                         <th style={{fontSize: '15px'}}><i className="fas fa-user" style={{paddingRight: '10px'}} />NAME</th>
                         <th style={{fontSize: '15px'}}><i className="fas fa-envelope" style={{paddingRight: '10px'}} />EMAIL</th>
-                        <th style={{fontSize: '15px'}}><i className="fas fa-user-shield" style={{paddingRight: '10px'}} />ADMIN</th>
+                        <th style={{fontSize: '15px', textAlign: 'center'}}><i className="fas fa-user-shield" style={{paddingRight: '10px'}} />ADMIN</th>
                         <th style={{fontSize: '15px', textAlign: 'center'}}><i className="fas fa-cogs" style={{paddingRight: '10px'}} />SETTING</th>
                         </tr>
                     </thead>
@@ -69,7 +69,7 @@ const UserListPage = ({history}) => {
                             <td>
                                 <a href={`mailto:${user.email}`}>{user.email}</a>
                             </td>
-                            <td>
+                            <td style={{textAlign: 'center'}}>
                                 {user.isAdmin ? (
                                     <i className='fas fa-check' style={{ color: 'green' }}></i>
                                 ) : (
