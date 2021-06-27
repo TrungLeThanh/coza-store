@@ -4,8 +4,7 @@ import './Header.css';
 import Badge from '@material-ui/core/Badge';
 import {useSelector, useDispatch} from 'react-redux';
 import {logout} from '../actions/userActions';
-import Tooltip from '@material-ui/core/Tooltip';
-import {Dropdown, NavDropdown} from 'react-bootstrap';
+import {Dropdown} from 'react-bootstrap';
 
 const Header = () =>{
 

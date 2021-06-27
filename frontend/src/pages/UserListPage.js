@@ -44,7 +44,7 @@ const UserListPage = ({history}) => {
                 Users
             </div>
             <hr />
-            <h1 style={{textAlign: 'center', fontWeight: '500', padding: '20px 0px'}}>User information</h1>
+            <h1 style={{textAlign: 'center', fontWeight: '500', padding: '20px 0px'}}>Users information</h1>
             {
                 loading ? 
                 <Loader /> :
