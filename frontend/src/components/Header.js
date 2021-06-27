@@ -5,6 +5,7 @@ import Badge from '@material-ui/core/Badge';
 import {useSelector, useDispatch} from 'react-redux';
 import {logout} from '../actions/userActions';
 import Tooltip from '@material-ui/core/Tooltip';
+import {Dropdown, NavDropdown} from 'react-bootstrap';
 
 const Header = () =>{
 
@@ -41,7 +42,6 @@ const Header = () =>{
     }
 
     const userLogin = useSelector(state => state.userLogin);
-
     const {userInfor} = userLogin;
 
     const logoutHandler = (e) => {
@@ -88,20 +88,37 @@ const Header = () =>{
                     </Badge>
                 </Link>
                 {
+                    userInfor && userInfor.isAdmin ?
+                    (
+                    <>
+                        <Dropdown style={{marginLeft: '15px'}} className="none">
+                            <Dropdown.Toggle variant="outline">
+                                <span style={{fontSize: '15px'}}>ADMIN</span>
+                            </Dropdown.Toggle>
+                            <Dropdown.Menu>
+                                <Dropdown.Item href="/profile">Profile</Dropdown.Item>
+                                <Dropdown.Item href="/admin/userlist">Users</Dropdown.Item>
+                                <Dropdown.Item href="#/action-2">Products</Dropdown.Item>
+                                <Dropdown.Item href="#/action-3">Orders</Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
+                        <i onClick={logoutHandler} style={{fontSize: '20px', paddingLeft: '14px', cursor: 'pointer', marginTop: '40px'}} className="fas fa-sign-out-alt" />
+                    </>
+                    ) :
                     userInfor ? 
                     (
                         <>
                         <Link to="/profile" className="none"> 
                             <b style={{fontSize: '16px', marginLeft: '20px', marginBottom: '20px', cursor: 'pointer'}} className="ui grey circular label">{userInfor.name.charAt(0)}</b>
                         </Link>
-                        <Tooltip title="Logout" arrow>
-                            <i onClick={logoutHandler} style={{fontSize: '20px', paddingLeft: '20px', cursor: 'pointer'}} className="fas fa-sign-out-alt" />
-                        </Tooltip>
+                        <i onClick={logoutHandler} style={{fontSize: '20px', paddingLeft: '20px', cursor: 'pointer', marginTop: '40px'}} className="fas fa-sign-out-alt" />
                         </>
                     ) :
-                    (<Link to="/login" className="none"> 
-                        <i style={{fontSize: '20px', paddingLeft: '30px'}} className="fas fa-sign-in-alt" />
-                    </Link>)
+                    (
+                        <Link to="/login" className="none"> 
+                            <i style={{fontSize: '20px', paddingLeft: '30px'}} className="fas fa-sign-in-alt" />
+                        </Link>
+                    )
                 }
             </div>
 

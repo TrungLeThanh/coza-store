@@ -76,6 +76,8 @@
     line-height: 105px;
     padding-right: 170px;
     text-align: right;
+    display: flex;
+    justify-content: flex-end;
 }
 
 /*------------------- HEADER TABLET & Mobile------------- */
@@ -168,6 +170,12 @@
     color: rgb(228, 216, 4);
 }
 
+/*  */
+
+a.dropdown-item{
+    display: inline;
+}
+
 /*------------------- RESPONSIVE --------------------*/
 
 /* pc */
@@ -209,12 +217,13 @@
     }
 
     .header__logo{
-        width: 45%;
+        width: 50%;
     }
 
     .header__bonus{
-        width: 55%;
-        margin-right: 35px;
+        width: 50%;
+        justify-content: flex-end;
+        margin-right: 30px;
     }
 
     .header__list{

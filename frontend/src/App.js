@@ -16,6 +16,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import OrderPage from './pages/OrderPage';
+import UserListPage from './pages/UserListPage';
 
 const App = () => {
     return (
@@ -33,6 +34,7 @@ const App = () => {
             <Route path="/orders/:id" exact component={OrderPage} />
             <Route path="/products/:id" exact component={ProductDetail} />
             <Route path="/cart/:id?" exact component={CartPage} />
+            <Route path="/admin/userlist" exact component={UserListPage} />
             <Route path="/" exact component={HomePage} />
             <BackTop />
             <Footer />
