@@ -6,7 +6,7 @@ import Loader from '../components/Loader';
 import {Table} from 'react-bootstrap';
 import {LinkContainer} from 'react-router-bootstrap';
 import {Link} from 'react-router-dom';
-import {listProducts} from '../actions/productActions';
+import {listProducts, deleteProduct} from '../actions/productActions';
 
 const ProductListPage = ({history}) => {
     const dispatch = useDispatch();
@@ -17,6 +17,13 @@ const ProductListPage = ({history}) => {
     const productList = useSelector((state) => state.productList);
     const { loading, error, products } = productList;
 
+    const productDelete = useSelector((state) => state.productDelete);
+    const { loading: loadingDelete, error: errorDelete, success: successDelete,} = productDelete;
+
+    let count = 1;
+
+    // MODAL CONFIRM
+
     useEffect(() => {
         if(userInfor && userInfor.isAdmin){
             dispatch(listProducts());
@@ -24,11 +31,11 @@ const ProductListPage = ({history}) => {
         else{
             history.push('/login')
         }
-    }, [dispatch, history, userInfor]);
+    }, [dispatch, history, userInfor, successDelete]);
 
     const deleteHandler = (id) => {
         if(window.confirm('Are you sure you want to delete')){
-            // DELETE
+            dispatch(deleteProduct(id));
         }
     };
 
@@ -44,10 +51,12 @@ const ProductListPage = ({history}) => {
             <div className="create">
                 <h2 style={{fontWeight: '500'}}>Current products</h2>
                 <button className="ui linkedin button">
-                    <i class="clipboard check icon"></i>
+                    <i class="plus icon"></i>
                     CREATE
                 </button>
             </div>
+            {loadingDelete && <Loader />}
+            {errorDelete && <Message variant='danger'>{errorDelete}</Message>}
             {
                 loading ? 
                 <Loader /> :
@@ -57,6 +66,7 @@ const ProductListPage = ({history}) => {
                     <Table striped bordered hover responsive className='table-sm'>
                     <thead>
                         <tr>
+                            <th></th>
                             <th style={{fontSize: '15px'}}>ID</th>
                             <th style={{fontSize: '15px'}}>NAME</th>
                             <th style={{fontSize: '15px'}}>PRICE</th>
@@ -67,6 +77,7 @@ const ProductListPage = ({history}) => {
                         <tbody>
                             {products.map((product) => (
                                 <tr key={product._id}>
+                                <td>{count++}</td>
                                 <td>{product._id}</td>
                                 <td>{product.name}</td>
                                 <td>${product.price}</td>
