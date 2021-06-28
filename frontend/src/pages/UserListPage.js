@@ -20,6 +20,8 @@ const UserListPage = ({history}) => {
     const userDelete = useSelector((state) => state.userDelete);
     const { success: successDelete } = userDelete;
 
+    let count = 1;
+
     useEffect(() => {
         if(userInfor && userInfor.isAdmin){
             dispatch(listUsers());
@@ -54,6 +56,7 @@ const UserListPage = ({history}) => {
                 <Table striped bordered hover responsive className='table-sm'>
                     <thead>
                         <tr>
+                        <th></th>
                         <th style={{fontSize: '15px'}}><i className="fas fa-key" style={{paddingRight: '10px'}} />ID</th>
                         <th style={{fontSize: '15px'}}><i className="fas fa-user" style={{paddingRight: '10px'}} />NAME</th>
                         <th style={{fontSize: '15px'}}><i className="fas fa-envelope" style={{paddingRight: '10px'}} />EMAIL</th>
@@ -64,6 +67,7 @@ const UserListPage = ({history}) => {
                 <tbody>
                     {users.map((user) => (
                         <tr key={user._id}>
+                            <td>{count++}</td>
                             <td>{user._id}</td>
                             <td>{user.name}</td>
                             <td>
