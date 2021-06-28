@@ -6,7 +6,8 @@ import Loader from '../components/Loader';
 import {Table, Modal, Button} from 'react-bootstrap';
 import {LinkContainer} from 'react-router-bootstrap';
 import {Link} from 'react-router-dom';
-import {listProducts, deleteProduct} from '../actions/productActions';
+import {listProducts, deleteProduct, createProduct} from '../actions/productActions';
+import { PRODUCT_CREATE_RESET } from '../contains/productContains';
 
 const ProductListPage = ({history}) => {
     const dispatch = useDispatch();
@@ -20,6 +21,9 @@ const ProductListPage = ({history}) => {
     const productDelete = useSelector((state) => state.productDelete);
     const { loading: loadingDelete, error: errorDelete, success: successDelete,} = productDelete;
 
+    const productCreate = useSelector((state) => state.productCreate);
+    const {loading: loadingCreate, error: errorCreate, success: successCreate, product: createdProduct} = productCreate;
+
     let count = 1;
 
     // MODAL CONFIRM
@@ -28,13 +32,18 @@ const ProductListPage = ({history}) => {
     const [id, setId] = useState('');
 
     useEffect(() => {
-        if(userInfor && userInfor.isAdmin){
+        dispatch({ type: PRODUCT_CREATE_RESET })
+
+        if (!userInfor || !userInfor.isAdmin) {
+            history.push('/login');
+        }
+
+        if (successCreate) {
+            history.push(`/admin/product/${createdProduct._id}/edit`);
+        } else {
             dispatch(listProducts());
         }
-        else{
-            history.push('/login')
-        }
-    }, [dispatch, history, userInfor, successDelete]);
+    }, [dispatch, history, userInfor, successDelete, successCreate, createdProduct]);
 
     const confirmDelete = (id) => {
         setShow(true);
@@ -45,6 +54,10 @@ const ProductListPage = ({history}) => {
         dispatch(deleteProduct(id));
         setShow(false);
     };
+
+    const createProductHandler = () => {
+        dispatch(createProduct());
+    }
 
     return (
         <div className="wrap-list-product">
@@ -57,13 +70,15 @@ const ProductListPage = ({history}) => {
             <hr />
             <div className="create">
                 <h2 style={{fontWeight: '500'}}>Current products</h2>
-                <button className="ui linkedin button">
+                <button onClick={createProductHandler} className="ui linkedin button">
                     <i className="plus icon"></i>
                     CREATE
                 </button>
             </div>
             {loadingDelete && <Loader />}
             {errorDelete && <Message variant='danger'>{errorDelete}</Message>}
+            {loadingCreate && <Loader />}
+            {errorCreate && <Message variant='danger'>{errorCreate}</Message>}
             {
                 loading ? 
                 <Loader /> :
@@ -89,7 +104,7 @@ const ProductListPage = ({history}) => {
                                 <td>{product.name}</td>
                                 <td>${product.price}</td>
                                 <td>{product.category}</td>
-                                <td style={{textAlign: 'center'}}>
+                                <td style={{textAlign: 'center', cursor: 'pointer'}}>
                                     <LinkContainer to={`/admin/product/${product._id}/edit`}>
                                         <i className='fas fa-edit'></i>
                                     </LinkContainer> | 

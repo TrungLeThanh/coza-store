@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import './UserListPage.css';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from '../components/Message';
@@ -7,6 +7,7 @@ import { listUsers, deleteUser } from '../actions/userActions';
 import {Table} from 'react-bootstrap';
 import {LinkContainer} from 'react-router-bootstrap';
 import {Link} from 'react-router-dom';
+import {Modal, Button} from 'react-bootstrap';
 
 const UserListPage = ({history}) => {
     const dispatch = useDispatch();
@@ -22,6 +23,11 @@ const UserListPage = ({history}) => {
 
     let count = 1;
 
+    // MODAL CONFIRM
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const [id, setId] = useState('');
+
     useEffect(() => {
         if(userInfor && userInfor.isAdmin){
             dispatch(listUsers());
@@ -31,10 +37,13 @@ const UserListPage = ({history}) => {
         }
     }, [dispatch, history, userInfor, successDelete]);
 
-    const deleteHandler = (id) => {
-        if(window.confirm('Are you sure you want to delete it?')){
-            dispatch(deleteUser(id));
-        }
+    const confirmDelete = (id) => {
+        setShow(true);
+        setId(id);
+    };
+    const deleteHandler = () => {
+        dispatch(deleteUser(id));
+        setShow(false);
     };
 
     return (
@@ -84,7 +93,7 @@ const UserListPage = ({history}) => {
                                 <LinkContainer to={`/admin/user/${user._id}/edit`}>
                                     <i className='fas fa-edit'></i>
                                 </LinkContainer> | 
-                                <i onClick={() => deleteHandler(user._id)} style={{paddingLeft: '10px', color: '#D32F41'}} className='fas fa-trash'></i>
+                                <i onClick={() => confirmDelete(user._id)} style={{paddingLeft: '10px', color: '#D32F41'}} className='fas fa-trash'></i>
                             </td>
                         </tr>
                     ))}
@@ -92,6 +101,26 @@ const UserListPage = ({history}) => {
                 </Table>
                 )
             }
+            <Modal
+                show={show}
+                onHide={handleClose}
+                backdrop="static"
+                keyboard={false}
+                style={{zIndex: '99999'}}
+                >
+                <Modal.Header>
+                <Modal.Title>COZA STORE</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                Are you sure delete it?
+                </Modal.Body>
+                <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>
+                    Close
+                </Button>
+                <Button variant="danger" onClick={() => deleteHandler()}>Delete</Button>
+                </Modal.Footer>
+            </Modal>
         </div>
     );
 };
