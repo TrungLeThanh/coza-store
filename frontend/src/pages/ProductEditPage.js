@@ -12,13 +12,16 @@ import axios from 'axios';
 const ProductEditPage = ({match, history}) => {
 
     const productId = match.params.id;
+    const [test, setTest] = useState(1);
+
+    console.log(test);
 
     const [name, setName] = useState('');
     const [price, setPrice] = useState(0);
     const [image, setImage] = useState('');
-    const [image1, setImage1] = useState('');
-    const [image2, setImage2] = useState('');
-    const [image3, setImage3] = useState('');
+    const [detailOne, setDetailOne] = useState('');
+    const [detailTwo, setDetailTwo] = useState('');
+    const [detailThree, setDetailThree] = useState('');
     const [brand, setBrand] = useState('');
     const [category, setCategory] = useState('');
     const [countInStock, setCountInStock] = useState(0);
@@ -44,9 +47,9 @@ const ProductEditPage = ({match, history}) => {
                 setName(product.name);
                 setPrice(product.price);
                 setImage(product.image);
-                setImage1(product.detailOne);
-                setImage2(product.detailTwo);
-                setImage3(product.detailThree);
+                setDetailOne(product.detailOne);
+                setDetailTwo(product.detailTwo);
+                setDetailThree(product.detailThree);
                 setBrand(product.brand);
                 setCategory(product.category);
                 setCountInStock(product.countInStock);
@@ -62,8 +65,9 @@ const ProductEditPage = ({match, history}) => {
             name, 
             price,
             image,
-            image1,
-            image2,
+            detailOne,
+            detailTwo,
+            detailThree,
             brand,
             category,
             countInStock,
@@ -74,9 +78,9 @@ const ProductEditPage = ({match, history}) => {
     const uploadFileHandler = async (e) => {
         const file = e.target.files[0];
         const formData = new FormData();
-        formData.append('image', file);
+        formData.append('images', file);
         setUploading(true);
-    
+        
         try {
             const config = {
                 headers: {
@@ -86,9 +90,21 @@ const ProductEditPage = ({match, history}) => {
         
             const { data } = await axios.post('/api/upload', formData, config);
         
-            setImage(data);
-                setUploading(false);
-            } 
+            if(test === 2){
+                setImage(data);
+            }
+            if(test === 3){
+                setDetailOne(data);
+            }
+            if(test === 4){
+                setDetailTwo(data);
+            }
+            if(test === 5){
+                setDetailThree(data);
+            }
+            setUploading(false);
+        }
+
         catch (error) {
             console.error(error);
             setUploading(false);
@@ -131,6 +147,7 @@ const ProductEditPage = ({match, history}) => {
                                         ></Form.Control>
                                     </Form.Group>
                                     <br />
+
                                     <Form.Group controlId='price'>
                                         <Form.Label>Price $</Form.Label>
                                         <Form.Control
@@ -141,7 +158,8 @@ const ProductEditPage = ({match, history}) => {
                                         ></Form.Control>
                                     </Form.Group>
                                     <br />
-                                    <Form.Group controlId='image'>
+                                    
+                                    <Form.Group controlId='images'>
                                         <Form.Label>Image product</Form.Label>
                                         <Form.Control
                                             type='text'
@@ -155,41 +173,72 @@ const ProductEditPage = ({match, history}) => {
                                             label='Choose File'
                                             custom
                                             onChange={uploadFileHandler}
+                                            onClick={() => setTest(2)}
                                         ></Form.File>
                                         {uploading && <Loader />}
                                     </Form.Group>
                                     <br />
 
-                                    <Form.Group controlId='image1'>
+                                    <Form.Group controlId='images'>
                                         <Form.Label>Image Detai l</Form.Label>
                                         <Form.Control
                                             type='text'
                                             placeholder='Enter image url'
-                                            value={image1}
-                                            onChange={(e) => setImage1(e.target.value)}
+                                            value={detailOne}
+                                            onChange={(e) => setDetailOne(e.target.value)}
                                         ></Form.Control>
+                                        <br />
+                                        <Form.File
+                                            id='image-file'
+                                            label='Choose File'
+                                            custom
+                                            onChange={uploadFileHandler}
+                                            onClick={() => setTest(3)}
+                                        ></Form.File>
+                                        {uploading && <Loader />}
                                     </Form.Group>
                                     <br />
-                                    <Form.Group controlId='image2'>
+
+                                    <Form.Group controlId='images'>
                                         <Form.Label>Image Detail 2</Form.Label>
                                         <Form.Control
                                             type='text'
                                             placeholder='Enter image url'
-                                            value={image2}
-                                            onChange={(e) => setImage2(e.target.value)}
+                                            value={detailTwo}
+                                            onChange={(e) => setDetailTwo(e.target.value)}
                                         ></Form.Control>
+                                        <br />
+                                        <Form.File
+                                            id='image-file'
+                                            label='Choose File'
+                                            custom
+                                            onChange={uploadFileHandler}
+                                            onClick={() => setTest(4)}
+                                        ></Form.File>
+                                        {uploading && <Loader />}
                                     </Form.Group>
                                     <br />
-                                    <Form.Group controlId='image3'>
+
+                                    <Form.Group controlId='images'>
                                         <Form.Label>Image Detail 3</Form.Label>
                                         <Form.Control
                                             type='text'
                                             placeholder='Enter image url'
-                                            value={image3}
-                                            onChange={(e) => setImage3(e.target.value)}
+                                            value={detailThree}
+                                            onChange={(e) => setDetailThree(e.target.value)}
                                         ></Form.Control>
+                                        <br />
+                                        <Form.File
+                                            id='image-file'
+                                            label='Choose File'
+                                            custom
+                                            onChange={uploadFileHandler}
+                                            onClick={() => setTest(5)}
+                                        ></Form.File>
+                                        {uploading && <Loader />}
                                     </Form.Group>
                                     <br />
+
                                     <Form.Group controlId='brand'>
                                         <Form.Label>Brand</Form.Label>
                                         <Form.Control
@@ -200,6 +249,7 @@ const ProductEditPage = ({match, history}) => {
                                         ></Form.Control>
                                     </Form.Group>
                                     <br />
+
                                     <Form.Group controlId='countInStock'>
                                         <Form.Label>Count In Stock</Form.Label>
                                         <Form.Control
@@ -210,6 +260,7 @@ const ProductEditPage = ({match, history}) => {
                                         ></Form.Control>
                                     </Form.Group>
                                     <br />
+
                                     <Form.Group controlId='category'>
                                         <Form.Label>Category</Form.Label>
                                         <Form.Control

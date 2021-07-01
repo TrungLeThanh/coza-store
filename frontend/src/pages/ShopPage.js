@@ -36,7 +36,7 @@ const ShopPage = () => {
 
     const showAllProducts = () => {
         return (
-            <Grid container justify="center" spacing={7}>
+            <Grid container spacing={7}>
                 {   
                     products.slice(pagesVisited, pagesVisited + shopPage).map((product)=>{
                         return (
@@ -98,7 +98,7 @@ const ShopPage = () => {
 
 
     return (
-        <div className="wrap-overview" style={{paddingTop: '110px'}}>
+        <div className="wrap-overview" style={{paddingTop: '110px', minHeight: '100vh'}}>
             <div style={{marginBottom: '30px'}}>
                 <Link style={{textDecoration: 'none', color: 'back', fontWeight: 'bold'}} to='/'>
                     Home &nbsp;{'>'}&nbsp;

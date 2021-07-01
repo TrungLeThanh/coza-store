@@ -47,6 +47,7 @@
     height: 100%;
     transition: 0.5s;
     max-height: 365px;
+    min-height: 365px;
 }
 
 .image-product:hover{

@@ -36,7 +36,7 @@ const Overview = () => {
 
     const showAllProducts = () => {
         return (
-            <Grid container justify="center" spacing={7}>
+            <Grid container spacing={7}>
                 {   
                     products.slice(pagesVisited, pagesVisited + shopPage).map((product)=>{
                         return (
