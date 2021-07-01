@@ -159,86 +159,6 @@ const ProductEditPage = ({match, history}) => {
                                     </Form.Group>
                                     <br />
                                     
-                                    <Form.Group controlId='images'>
-                                        <Form.Label>Image product</Form.Label>
-                                        <Form.Control
-                                            type='text'
-                                            placeholder='Enter image url'
-                                            value={image}
-                                            onChange={(e) => setImage(e.target.value)}
-                                        ></Form.Control>
-                                        <br />
-                                        <Form.File
-                                            id='image-file'
-                                            label='Choose File'
-                                            custom
-                                            onChange={uploadFileHandler}
-                                            onClick={() => setTest(2)}
-                                        ></Form.File>
-                                        {uploading && <Loader />}
-                                    </Form.Group>
-                                    <br />
-
-                                    <Form.Group controlId='images'>
-                                        <Form.Label>Image Detai l</Form.Label>
-                                        <Form.Control
-                                            type='text'
-                                            placeholder='Enter image url'
-                                            value={detailOne}
-                                            onChange={(e) => setDetailOne(e.target.value)}
-                                        ></Form.Control>
-                                        <br />
-                                        <Form.File
-                                            id='image-file'
-                                            label='Choose File'
-                                            custom
-                                            onChange={uploadFileHandler}
-                                            onClick={() => setTest(3)}
-                                        ></Form.File>
-                                        {uploading && <Loader />}
-                                    </Form.Group>
-                                    <br />
-
-                                    <Form.Group controlId='images'>
-                                        <Form.Label>Image Detail 2</Form.Label>
-                                        <Form.Control
-                                            type='text'
-                                            placeholder='Enter image url'
-                                            value={detailTwo}
-                                            onChange={(e) => setDetailTwo(e.target.value)}
-                                        ></Form.Control>
-                                        <br />
-                                        <Form.File
-                                            id='image-file'
-                                            label='Choose File'
-                                            custom
-                                            onChange={uploadFileHandler}
-                                            onClick={() => setTest(4)}
-                                        ></Form.File>
-                                        {uploading && <Loader />}
-                                    </Form.Group>
-                                    <br />
-
-                                    <Form.Group controlId='images'>
-                                        <Form.Label>Image Detail 3</Form.Label>
-                                        <Form.Control
-                                            type='text'
-                                            placeholder='Enter image url'
-                                            value={detailThree}
-                                            onChange={(e) => setDetailThree(e.target.value)}
-                                        ></Form.Control>
-                                        <br />
-                                        <Form.File
-                                            id='image-file'
-                                            label='Choose File'
-                                            custom
-                                            onChange={uploadFileHandler}
-                                            onClick={() => setTest(5)}
-                                        ></Form.File>
-                                        {uploading && <Loader />}
-                                    </Form.Group>
-                                    <br />
-
                                     <Form.Group controlId='brand'>
                                         <Form.Label>Brand</Form.Label>
                                         <Form.Control
@@ -271,6 +191,7 @@ const ProductEditPage = ({match, history}) => {
                                         ></Form.Control>
                                     </Form.Group>
                                     <br />
+
                                     <Form.Group controlId='description'>
                                         <Form.Label>Description</Form.Label>
                                         <Form.Control
@@ -281,6 +202,65 @@ const ProductEditPage = ({match, history}) => {
                                         ></Form.Control>
                                     </Form.Group>
                                     <br />
+                                    <hr />
+                                    
+                                    <div className="w-f-file" style={{display: 'flex'}} >
+                                    <Form.Group controlId='images'>
+                                        <Form.Label>Image product</Form.Label>
+                                        <br />
+                                        <Form.File
+                                            id='image-file'
+                                            custom
+                                            onChange={uploadFileHandler}
+                                            onClick={() => setTest(2)}
+                                        ></Form.File>
+                                        {uploading && <Loader />}
+                                    </Form.Group>
+                                    <br /> 
+
+                                    <Form.Group controlId='images'>
+                                        <Form.Label>Image Detai</Form.Label>
+                                        <br />
+                                        <Form.File
+                                            id='image-file'
+                                            custom
+                                            onChange={uploadFileHandler}
+                                            onClick={() => setTest(3)}
+                                        ></Form.File>
+                                        {uploading && <Loader />}
+                                    </Form.Group>
+                                    <br />
+                                    </div>
+
+                                    <div className="w-f-file" style={{display: 'flex', marginTop: '30px'}} >
+                                    <Form.Group controlId='images'>
+                                        <Form.Label>Image Detail</Form.Label>
+                                        
+                                        <br />
+                                        <Form.File
+                                            id='image-file'
+                                            custom
+                                            onChange={uploadFileHandler}
+                                            onClick={() => setTest(4)}
+                                        ></Form.File>
+                                        {uploading && <Loader />}
+                                    </Form.Group>
+                                    <br />
+
+                                    <Form.Group controlId='images'>
+                                        <Form.Label>Image Detail</Form.Label>
+                                        <br />
+                                        <Form.File
+                                            id='image-file'
+                                            custom
+                                            onChange={uploadFileHandler}
+                                            onClick={() => setTest(5)}
+                                        ></Form.File>
+                                        {uploading && <Loader />}
+                                    </Form.Group>
+                                    </div>
+                                    <br />
+
                                     <Button type='submit' variant='primary'> Update</Button>
                                 </Form>
                             )

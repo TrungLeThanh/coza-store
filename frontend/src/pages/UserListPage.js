@@ -8,6 +8,8 @@ import {Table} from 'react-bootstrap';
 import {LinkContainer} from 'react-router-bootstrap';
 import {Link} from 'react-router-dom';
 import {Modal, Button} from 'react-bootstrap';
+import ReactPaginate from 'react-paginate';
+
 
 const UserListPage = ({history}) => {
     const dispatch = useDispatch();
@@ -27,7 +29,16 @@ const UserListPage = ({history}) => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const [id, setId] = useState('');
-
+    
+     // Panagation
+    const [pageNumber, setPageNumber] = useState(0);
+    const shopPage = 10;
+    const pagesVisited = pageNumber * shopPage;
+    const pageCount = Math.ceil(Object(users).length / shopPage);
+    const changePage = ({ selected }) => {
+        setPageNumber(selected);
+    };
+    
     useEffect(() => {
         if(userInfor && userInfor.isAdmin){
             dispatch(listUsers());
@@ -74,7 +85,7 @@ const UserListPage = ({history}) => {
                         </tr>
                     </thead>
                 <tbody>
-                    {users.map((user) => (
+                    {users.slice(pagesVisited, pagesVisited + shopPage).map((user) => (
                         <tr key={user._id}>
                             <td>{count++}</td>
                             <td>{user._id}</td>
@@ -121,6 +132,15 @@ const UserListPage = ({history}) => {
                 <Button variant="danger" onClick={() => deleteHandler()}>Delete</Button>
                 </Modal.Footer>
             </Modal>
+            <ReactPaginate
+                previousLabel={null}
+                nextLabel={null}
+                pageCount={pageCount}
+                onPageChange={changePage}
+                containerClassName={"paginationBttn"}
+                pageClassName={"btnpa"}
+                activeClassName={"active-pag"}
+            />
         </div>
     );
 };

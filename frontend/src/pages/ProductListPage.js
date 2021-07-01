@@ -8,6 +8,7 @@ import {LinkContainer} from 'react-router-bootstrap';
 import {Link} from 'react-router-dom';
 import {listProducts, deleteProduct, createProduct} from '../actions/productActions';
 import { PRODUCT_CREATE_RESET } from '../contains/productContains';
+import ReactPaginate from 'react-paginate';
 
 const ProductListPage = ({history}) => {
     const dispatch = useDispatch();
@@ -30,6 +31,15 @@ const ProductListPage = ({history}) => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const [id, setId] = useState('');
+
+    // Panagation
+    const [pageNumber, setPageNumber] = useState(0);
+    const shopPage = 10;
+    const pagesVisited = pageNumber * shopPage;
+    const pageCount = Math.ceil(products.length / shopPage);
+    const changePage = ({ selected }) => {
+        setPageNumber(selected);
+    };
 
     useEffect(() => {
         dispatch({ type: PRODUCT_CREATE_RESET })
@@ -97,9 +107,9 @@ const ProductListPage = ({history}) => {
                         </tr>
                         </thead>
                         <tbody>
-                            {products.map((product) => (
+                            {products.slice(pagesVisited, pagesVisited + shopPage).map((product) => (
                                 <tr key={product._id}>
-                                <td>{count++}</td>
+                                <td>{count ++}</td>
                                 <td>{product._id}</td>
                                 <td>{product.name}</td>
                                 <td>${product.price}</td>
@@ -136,6 +146,15 @@ const ProductListPage = ({history}) => {
                 <Button variant="danger" onClick={() => deleteHandler()}>Delete</Button>
                 </Modal.Footer>
             </Modal>
+            <ReactPaginate
+                previousLabel={null}
+                nextLabel={null}
+                pageCount={pageCount}
+                onPageChange={changePage}
+                containerClassName={"paginationBttn"}
+                pageClassName={"btnpa"}
+                activeClassName={"active-pag"}
+            />
         </div>
     );
 };
