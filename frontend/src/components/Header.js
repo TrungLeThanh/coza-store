@@ -6,6 +6,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {logout} from '../actions/userActions';
 import {Dropdown} from 'react-bootstrap';
 
+
 const Header = () =>{
 
     const location = useLocation();
@@ -98,7 +99,7 @@ const Header = () =>{
                                 <Dropdown.Item href="/profile">Profile</Dropdown.Item>
                                 <Dropdown.Item href="/admin/userlist">Users</Dropdown.Item>
                                 <Dropdown.Item href="/admin/productlist">Products</Dropdown.Item>
-                                <Dropdown.Item href="#/action-3">Orders</Dropdown.Item>
+                                <Dropdown.Item href="/admin/orderlist">Orders</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
                         <i onClick={logoutHandler} style={{fontSize: '20px', paddingLeft: '14px', cursor: 'pointer', marginTop: '40px'}} className="fas fa-sign-out-alt" />

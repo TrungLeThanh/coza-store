@@ -71,7 +71,7 @@ const UserListPage = ({history}) => {
                 loading ? 
                 <Loader /> :
                 error ? 
-                <Message variant='danger'>{error}</Message> :
+                <Message type="red" message={error} /> :
                 (
                 <Table striped bordered hover responsive className='table-sm'>
                     <thead>

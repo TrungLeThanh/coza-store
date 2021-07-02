@@ -20,6 +20,7 @@ import UserListPage from './pages/UserListPage';
 import UserEditPage from './pages/UserEditPage';
 import ProductListPage from './pages/ProductListPage';
 import ProductEditPage from './pages/ProductEditPage';
+import OrderListPage from './pages/OrderListPage';
 
 const App = () => {
     return (
@@ -40,6 +41,7 @@ const App = () => {
             <Route path="/admin/user/:id/edit" exact component={UserEditPage} />
             <Route path='/admin/product/:id/edit' component={ProductEditPage} />
             <Route path="/admin/productlist" exact component={ProductListPage} />
+            <Route path="/admin/orderlist" exact component={OrderListPage} />
             <Route path="/admin/userlist" exact component={UserListPage} />
             <Route path="/" exact component={HomePage} />
             <BackTop />
