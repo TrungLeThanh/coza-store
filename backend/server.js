@@ -6,6 +6,7 @@ import orderRoutes from './routes/orderRoutes.js'
 import uploadRoutes from './routes/uploadRoutes.js'
 import connectDB from './config/db.js';
 import dotenv from 'dotenv';
+import morgan from 'morgan';
 import {notFound, errorHandler} from './middleware/errorMiddleware.js';
 
 const app = express();
@@ -14,6 +15,9 @@ connectDB();
 
 app.use(express.json());
 
+if (process.env.NODE_ENV === 'development') {
+    app.use(morgan('dev'));
+}
 
 app.get('/', (req, res) => {
     res.send('Api is runing');

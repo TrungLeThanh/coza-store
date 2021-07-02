@@ -59,6 +59,21 @@
     border: 2px double rgb(155, 155, 155);
 }
 
+/* Comment */
+
+.reviews{
+    margin-top: 70px;
+}
+
+.content{
+    font-size: 16px;
+}
+
+.comment-write{
+    width: 60%;
+    padding-top: 30px;
+}
+
 /* RESPONSIVE */
 
 @media (max-width: 1387px){
@@ -69,6 +84,10 @@
 
     .image-detail{
         margin-left: 18%;
+    }
+
+    .comment-write{
+        width: 60%;
     }
     
 }
@@ -106,6 +125,10 @@
         width: 100px;
         height: 125px;
         margin: 0px 0px 15px 0px;
+    }
+
+    .comment-write{
+        width: 100%;
     }
 }
 
