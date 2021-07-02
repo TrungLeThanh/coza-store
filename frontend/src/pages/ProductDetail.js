@@ -10,8 +10,8 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import {Link} from 'react-router-dom';
 import { createProductReview } from '../actions/productActions';
-import {PRODUCT_CREATE_REVIEW_RESET} from '../contains/productContains';
-import { ListGroup, Card, Button, Form } from 'react-bootstrap';
+import {PRODUCT_CREATE_REVIEW_RESET} from '../contains/productContains';    
+import { Button, Form } from 'react-bootstrap';
 
 const ProductDetail = ({match, history}) => {
     const dispatch = useDispatch();
@@ -37,8 +37,15 @@ const ProductDetail = ({match, history}) => {
     const {loading, error, product} = productDetails;
 
     useEffect(() =>{
-        dispatch(fetchProductById(match.params.id));
-    }, [dispatch, match]);
+        if (successProductReview) {
+            setRating(0);
+            setComment('');
+        }
+        if (!product._id || product._id !== match.params.id) {
+            dispatch(fetchProductById(match.params.id));
+            dispatch({ type: PRODUCT_CREATE_REVIEW_RESET });
+        }
+    }, [dispatch, match, product, successProductReview]);
 
     const addToCartHandler = () => {
         history.push(`/cart/${match.params.id}/?qty=${qty}&size=${size}`);
@@ -128,6 +135,9 @@ const ProductDetail = ({match, history}) => {
                 <Message /> :
                 renderProductById()
             }
+            <div className="sale-product">
+                
+            </div>
             <div className="reviews">
                 <h2 style={{fontWeight: '500'}}>Product Reviews</h2>
                 <hr />

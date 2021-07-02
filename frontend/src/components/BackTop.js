@@ -7,7 +7,7 @@ const BackTop = () =>{
 
     useEffect(() => {
         window.scrollTo(0, 0)
-    }, [])
+    }, []);
 
     const changeBack = () =>{
         if(window.scrollY>=100){
