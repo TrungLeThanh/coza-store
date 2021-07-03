@@ -31,14 +31,8 @@
 }
 
 
-@media (max-width: 1202px){
+@media (max-width: 1590px){
     .wrap-type-fashon{
-        padding:78px 73px 70px 73px;
-    }
-}
-
-@media (max-width: 739px){
-    .wrap-type-fashon{
-        padding:78px 30px 70px 30px;
+        padding: 78px 31px;
     }
 }

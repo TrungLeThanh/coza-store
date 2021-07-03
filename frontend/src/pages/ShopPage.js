@@ -9,8 +9,12 @@ import Message from '../components/Message';
 import {Link} from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
 import './ShopPage.css';
+import { Route } from 'react-router-dom';
+import SearchBox from '../components/SearchBox';
 
-const ShopPage = () => {
+const ShopPage = ({match}) => {
+
+    const keyword = match.params.keyword;
 
     const [active, setActive] = useState(1);
 
@@ -30,8 +34,8 @@ const ShopPage = () => {
     };
 
     useEffect(() => {
-        dispatch(listProducts());
-    }, [dispatch]);
+        dispatch(listProducts(keyword));
+    }, [dispatch, keyword]);
 
 
     const showAllProducts = () => {
@@ -113,10 +117,8 @@ const ShopPage = () => {
                     <button onClick={() => setActive(4)} className={`ui button ${active===4 ? 'active-color' : ''} fomat`}>Bag</button>
                     <button onClick={() => setActive(5)} className={`ui button ${active===5 ? 'active-color' : ''} fomat`}>Watches</button>
                 </div>
-                <div style={{marginTop: '-20px', position: 'relative'}} className="form-search">
-                    <form noValidate autoComplete="off">
-                        <TextField id="standard-basic" label="Search..." />
-                    </form>
+                <div style={{marginTop: '-10px', position: 'relative'}} className="form-search">
+                    <Route render={({ history }) => <SearchBox history={history} />} />
                 </div>
             </div>
             {
@@ -124,6 +126,13 @@ const ShopPage = () => {
                 <Loader /> :
                 error ?
                 <Message /> :
+                products.length === 0 ?
+                (
+                    <div style={{textAlign: 'center'}}>
+                        <img style={{width: '50%', zIndex: '-3', position: 'relative', marginTop: '-30px'}} src="/images/notf.png" alt="" />
+                        <p id="not">No product found <Link style={{fontWeight: 'bold', color: 'rgb(108, 122, 224)', textDecoration: 'none'}} to="/shop">Shopping now</Link></p>
+                    </div>
+                ) :
                 active === 1 ?
                 showAllProducts() :
                 active === 2 ?

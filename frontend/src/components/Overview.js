@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import './Overview.css';
-import TextField from '@material-ui/core/TextField';
 import {useDispatch, useSelector} from 'react-redux';
 import { listProducts } from '../actions/productActions';
 import Grid from '@material-ui/core/Grid';
@@ -9,6 +8,8 @@ import Message from './Message';
 import {Link} from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
 import '../pages/ShopPage.css';
+import { Route } from 'react-router-dom';
+import SearchBox from './SearchBox';
 
 const Overview = () => {
 
@@ -109,9 +110,7 @@ const Overview = () => {
                     <button onClick={() => setActive(5)} className={`ui button ${active===5 ? 'active-color' : ''} fomat`}>Watches</button>
                 </div>
                 <div style={{marginTop: '-20px', position: 'relative'}} className="form-search">
-                    <form noValidate autoComplete="off">
-                        <TextField id="standard-basic" label="Search..." />
-                    </form>
+                    <Route render={({ history }) => <SearchBox history={history} />} />
                 </div>
             </div>
             {

@@ -43,6 +43,7 @@ const App = () => {
             <Route path="/admin/productlist" exact component={ProductListPage} />
             <Route path="/admin/orderlist" exact component={OrderListPage} />
             <Route path="/admin/userlist" exact component={UserListPage} />
+            <Route path="/search/:keyword" exact component={ShopPage} />
             <Route path="/" exact component={HomePage} />
             <BackTop />
             <Footer />
