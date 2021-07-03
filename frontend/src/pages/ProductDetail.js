@@ -13,6 +13,7 @@ import { createProductReview } from '../actions/productActions';
 import {PRODUCT_CREATE_REVIEW_RESET} from '../contains/productContains';    
 import { Button, Form } from 'react-bootstrap';
 import TopRate from '../components/TopRate';
+import Meta from '../components/Meta';
 
 const ProductDetail = ({match, history}) => {
     const dispatch = useDispatch();
@@ -64,6 +65,8 @@ const ProductDetail = ({match, history}) => {
 
     const renderProductById = () => {
         return(
+            <>
+            <Meta title={`${product.name}`} />
             <Grid justify="center" container style={{padding: '30px 0 30px 0', boxShadow: 'rgba(0, 0, 0, 0.05) 0px 0px 0px 1px'}} spacing={0}>
                 <Grid item xs={12} sm={3} md={2} lg={2}>
                     <div className="select-image">
@@ -118,6 +121,7 @@ const ProductDetail = ({match, history}) => {
                     </div>
                 </Grid>
             </Grid>
+            </>
         );
     };
 

@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
 import {Link} from 'react-router-dom';
+import Meta from '../components/Meta';
 import './Features.css';
 
 const Features = () => {
@@ -55,6 +56,7 @@ const Features = () => {
 
     return (
         <div className="wrap-feature">
+            <Meta title="Feature" />
             <div style={{marginBottom: '30px'}}>
                 <Link style={{textDecoration: 'none', color: 'back', fontWeight: 'bold'}} to='/'>
                     Home &nbsp;{'>'}&nbsp;

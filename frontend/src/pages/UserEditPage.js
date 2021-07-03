@@ -7,6 +7,7 @@ import Loader from '../components/Loader';
 import Message from '../components/Message';
 import {getUserDetails, updateUser} from '../actions/userActions';
 import {USER_UPDATE_RESET} from '../contains/userContains';
+import Meta from '../components/Meta';
 
 const UserEditPage = ({match, history}) => {
 
@@ -46,6 +47,7 @@ const UserEditPage = ({match, history}) => {
 
     return (
         <div className="wrap-user-edit">
+            <Meta title="Edit Account" />
             <div style={{marginBottom: '30px'}}>
                 <Link style={{textDecoration: 'none', color: 'back', fontWeight: 'bold'}} to='/profile'>
                     Admin &nbsp;{'>'}&nbsp;

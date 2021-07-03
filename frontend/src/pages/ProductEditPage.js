@@ -8,6 +8,7 @@ import Message from '../components/Message';
 import {fetchProductById, updateProduct} from '../actions/productActions';
 import {PRODUCT_UPDATE_RESET} from '../contains/productContains';
 import axios from 'axios';
+import Meta from '../components/Meta';
 
 const ProductEditPage = ({match, history}) => {
 
@@ -113,6 +114,7 @@ const ProductEditPage = ({match, history}) => {
 
     return (
         <div className="wrap-product-edit">
+            <Meta title="Edit Products" />
             <div style={{marginBottom: '30px'}}>
                 <Link style={{textDecoration: 'none', color: 'back', fontWeight: 'bold'}} to='/profile'>
                     Admin &nbsp;{'>'}&nbsp;

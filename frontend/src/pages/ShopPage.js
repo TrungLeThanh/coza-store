@@ -10,6 +10,7 @@ import ReactPaginate from 'react-paginate';
 import './ShopPage.css';
 import { Route } from 'react-router-dom';
 import SearchBox from '../components/SearchBox';
+import Meta from '../components/Meta';
 
 const ShopPage = ({match}) => {
 
@@ -102,6 +103,7 @@ const ShopPage = ({match}) => {
 
     return (
         <div className="wrap-overview" style={{paddingTop: '110px', minHeight: '100vh'}}>
+            <Meta title="Shop" />
             <div style={{marginBottom: '30px'}}>
                 <Link style={{textDecoration: 'none', color: 'back', fontWeight: 'bold'}} to='/'>
                     Home &nbsp;{'>'}&nbsp;

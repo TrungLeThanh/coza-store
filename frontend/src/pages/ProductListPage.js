@@ -9,6 +9,7 @@ import {Link} from 'react-router-dom';
 import {listProducts, deleteProduct, createProduct} from '../actions/productActions';
 import { PRODUCT_CREATE_RESET } from '../contains/productContains';
 import ReactPaginate from 'react-paginate';
+import Meta from '../components/Meta';
 
 const ProductListPage = ({history}) => {
     const dispatch = useDispatch();
@@ -71,6 +72,7 @@ const ProductListPage = ({history}) => {
 
     return (
         <div className="wrap-list-product">
+            <Meta title="Products management" />
             <div style={{marginBottom: '30px'}}>
                 <Link style={{textDecoration: 'none', color: 'back', fontWeight: 'bold'}} to='/profile'>
                     Admin &nbsp;{'>'}&nbsp;

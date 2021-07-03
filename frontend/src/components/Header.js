@@ -136,9 +136,9 @@ const Header = () =>{
                         </Link>
                         <label id="menu-close" htmlFor="nav-mobile-input"><i style={{color: 'black'}} onClick={closeOverlay} className="fas fa-times" /></label>
                         <hr />
-                        <p to="/search" className="menu__item">
+                        <span to="/search" className="menu__item">
                             <Route render={({ history }) => <SearchBox history={history} />} />
-                        </p>
+                        </span>
                         <Link to="/" className="menu__item">
                             <i style={{paddingRight: '12px'}} className="fas fa-home" />Home
                         </Link>

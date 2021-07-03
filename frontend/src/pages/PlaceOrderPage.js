@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import {createOrder} from '../actions/orderActions';
 import Message from '../components/Message';
+import Meta from '../components/Meta';
 import { ORDER_CREATE_RESET } from '../contains/orderContains';
 
 const PlaceOrderPage = ({history}) => {
@@ -155,6 +156,7 @@ const PlaceOrderPage = ({history}) => {
 
     return (
         <div className="wrap-order">
+            <Meta title="Order" />
             <div style={{marginBottom: '30px'}}>
                 <Link style={{textDecoration: 'none', color: 'back', fontWeight: 'bold'}} to='/'>
                     Home &nbsp;{'>'}&nbsp;

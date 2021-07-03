@@ -1,9 +1,11 @@
 import React from 'react';
+import Meta from '../components/Meta';
 import './Blog.css';
 
 const Blog = () => {
     return (
         <div className="wrap-blog">
+            <Meta title="Blog" />
             <div className="banner-blog">
                 <h1 style={{fontSize: '40px', lineHeight: '250px', color: '#fff'}}>| Blog</h1>
             </div>

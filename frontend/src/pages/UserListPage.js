@@ -8,6 +8,7 @@ import {Table} from 'react-bootstrap';
 import {LinkContainer} from 'react-router-bootstrap';
 import {Link} from 'react-router-dom';
 import {Modal, Button} from 'react-bootstrap';
+import Meta from '../components/Meta';
 import ReactPaginate from 'react-paginate';
 
 
@@ -59,6 +60,7 @@ const UserListPage = ({history}) => {
 
     return (
         <div className="wrap-list-users">
+            <Meta title="Account management" />
             <div style={{marginBottom: '30px'}}>
                 <Link style={{textDecoration: 'none', color: 'back', fontWeight: 'bold'}} to='/profile'>
                     Admin &nbsp;{'>'}&nbsp;

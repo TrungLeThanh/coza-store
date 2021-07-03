@@ -10,7 +10,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import {removeFromCart} from '../actions/cartActions';
-
+import Meta from '../components/Meta';
 
 const CartPage = ({match, location, history}) => {
 
@@ -112,6 +112,7 @@ const CartPage = ({match, location, history}) => {
 
     return (
         <div className="wrap-cart">
+            <Meta title="Cart" />
             <div style={{marginBottom: '30px'}}>
                 <Link style={{textDecoration: 'none', color: 'back', fontWeight: 'bold'}} to='/'>
                     Home &nbsp;{'>'}&nbsp;

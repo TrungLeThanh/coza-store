@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import {saveShippingAddress, savePaymentMethod} from '../actions/cartActions';
 import './ShippingPage.css';
 import Step from '../components/Step';
+import Meta from '../components/Meta';
 import {Form} from 'react-bootstrap';
 
 const ShippingPage = ({history}) => {
@@ -105,6 +106,7 @@ const ShippingPage = ({history}) => {
 
     return (
         <div className="wrap-shipping">
+            <Meta title="Shipping" />
             <div style={{marginBottom: '25px'}}>
                 <Link style={{textDecoration: 'none', color: 'back', fontWeight: 'bold'}} to='/'>
                     Home &nbsp;{'>'}&nbsp;

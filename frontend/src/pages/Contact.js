@@ -1,9 +1,11 @@
 import React from 'react';
+import Meta from '../components/Meta';
 import './Contact.css';
 
 const Contact = () => {
     return (
         <div className="wrap-contact">
+            <Meta title="Contact" />
             <div className="banner-contact">
                 <h1 style={{fontSize: '40px', lineHeight: '250px', color: '#fff'}}>| Contact</h1>
             </div>

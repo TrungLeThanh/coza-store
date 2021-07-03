@@ -6,6 +6,7 @@ import './ProfilePage.css';
 import {Link} from 'react-router-dom';    
 import { getUserDetails, updateUserProfile } from '../actions/userActions';
 import { Table } from 'react-bootstrap';
+import Meta from '../components/Meta';
 import { listMyOrders } from '../actions/orderActions';
 
 const ProfilePage = ({ location, history }) => {
@@ -58,6 +59,7 @@ const ProfilePage = ({ location, history }) => {
 
     return (
         <div className="wrap-profile">
+            <Meta title="Profile" />
             <div style={{marginBottom: '30px'}}>
                 <Link style={{textDecoration: 'none', color: 'back', fontWeight: 'bold'}} to='/'>
                     Home &nbsp;{'>'}&nbsp;
