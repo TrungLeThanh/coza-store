@@ -5,7 +5,8 @@ import Badge from '@material-ui/core/Badge';
 import {useSelector, useDispatch} from 'react-redux';
 import {logout} from '../actions/userActions';
 import {Dropdown} from 'react-bootstrap';
-
+import { Route } from 'react-router-dom';
+import SearchBox from './SearchBox';
 
 const Header = () =>{
 
@@ -15,7 +16,6 @@ const Header = () =>{
 
     const [headerSticky, setHeaderSticky] = useState(false);
     const [overlay, setOverlay] = useState(false);
-    const [active, setActive] = useState(1);
 
     const cart = useSelector(state => state.cart);
     const {cartItems} = cart;
@@ -61,23 +61,23 @@ const Header = () =>{
                 </Link>
             </div>
             <div className="header__list">
-                <Link onClick={() => setActive(1)} id={`${location.pathname === '/' ? 'active-color' : ''}`} to="/" className="header__item">
+                <Link id={`${location.pathname === '/' ? 'active-color' : ''}`} to="/" className="header__item">
                     Home
                 </Link>
-                <Link onClick={() => setActive(2)} id={`${location.pathname === '/shop' ? 'active-color' : ''}`} to="/shop" className="header__item">
+                <Link id={`${location.pathname === '/shop' ? 'active-color' : ''}`} to="/shop" className="header__item">
                     Shop
                 </Link>
-                <Link onClick={() => setActive(3)} id={`${active === 3 ? 'active-color' : ''}`} to="/" className="header__item">
+                <Link id={`${location.pathname === '/features' ? 'active-color' : ''}`} to="/features" className="header__item">
                     Features
                     <Badge style={{paddingTop: '38px'}} badgeContent={'HOT'} color="secondary" />
                 </Link>
-                <Link onClick={() => setActive(4)} id={`${location.pathname === '/blog' ? 'active-color' : ''}`} to="/blog" className="header__item">
+                <Link id={`${location.pathname === '/blog' ? 'active-color' : ''}`} to="/blog" className="header__item">
                     Blog
                 </Link>
-                <Link onClick={() => setActive(5)} id={`${location.pathname === '/about' ? 'active-color' : ''}`} to="/about" className="header__item">
+                <Link id={`${location.pathname === '/about' ? 'active-color' : ''}`} to="/about" className="header__item">
                     About
                 </Link>
-                <Link onClick={() => setActive(6)} id={`${location.pathname === '/contact' ? 'active-color' : ''}`} to="/contact" className="header__item">
+                <Link id={`${location.pathname === '/contact' ? 'active-color' : ''}`} to="/contact" className="header__item">
                     Contact
                 </Link>
             </div>
@@ -108,14 +108,14 @@ const Header = () =>{
                     userInfor ? 
                     (
                         <>
-                        <Link to="/profile" className="none"> 
+                        <Link to="/profile"> 
                             <b style={{fontSize: '16px', marginLeft: '20px', marginBottom: '20px', cursor: 'pointer'}} className="ui grey circular label">{userInfor.name.charAt(0)}</b>
                         </Link>
-                        <i onClick={logoutHandler} style={{fontSize: '20px', paddingLeft: '20px', cursor: 'pointer', marginTop: '40px'}} className="fas fa-sign-out-alt" />
+                        <i onClick={logoutHandler} style={{fontSize: '20px', paddingLeft: '20px', cursor: 'pointer', marginTop: '40px'}} className="fas fa-sign-out-alt none" />
                         </>
                     ) :
                     (
-                        <Link to="/login" className="none"> 
+                        <Link to="/login"> 
                             <i style={{fontSize: '20px', paddingLeft: '30px'}} className="fas fa-sign-in-alt" />
                         </Link>
                     )
@@ -136,34 +136,33 @@ const Header = () =>{
                         </Link>
                         <label id="menu-close" htmlFor="nav-mobile-input"><i style={{color: 'black'}} onClick={closeOverlay} className="fas fa-times" /></label>
                         <hr />
-                        <Link to="/search" className="menu__item">
-                            <i style={{paddingRight: '12px'}} className="fas fa-search" />Search
-                        </Link>
+                        <p to="/search" className="menu__item">
+                            <Route render={({ history }) => <SearchBox history={history} />} />
+                        </p>
                         <Link to="/" className="menu__item">
                             <i style={{paddingRight: '12px'}} className="fas fa-home" />Home
                         </Link>
-                        <Link to="/" className="menu__item">
+                        <Link to="/shop" className="menu__item">
                             <i style={{paddingRight: '12px'}} className="fas fa-shopping-cart" />Shop
                         </Link>
-                        <Link to="/" className="menu__item">
+                        <Link to="/features" className="menu__item">
                             <i style={{paddingRight: '12px'}} className="fas fa-tv" />Features
                         </Link>
-                        <Link to="/" className="menu__item">
+                        <Link to="/blog" className="menu__item">
                             <i style={{paddingRight: '12px'}} className="fas fa-blog" /> Blog
                         </Link>
-                        <Link to="/" className="menu__item">
+                        <Link to="/about" className="menu__item">
                             <i style={{paddingRight: '12px'}} className="fas fa-tags" />About
                         </Link>
-                        <Link to="/" className="menu__item">
+                        <Link to="/contact" className="menu__item">
                             <i style={{paddingRight: '12px'}} className="fas fa-address-book" />Contacts
                         </Link>
-                        <div className="menu__social">
-                            <i className="fab fa-facebook-square menu__social--icon" />
-                            <i className="fab fa-twitter menu__social--icon" />
-                            <i className="fab fa-pinterest-square menu__social--icon" />
-                            <i className="fab fa-youtube menu__social--icon" />
-                            <i className="fab fa-instagram-square menu__social--icon" />
-                        </div>
+                            {
+                            userInfor &&
+                            (
+                                <i onClick={logoutHandler} style={{fontSize: '20px', paddingLeft: '40px', cursor: 'pointer', marginTop: '10px'}} className="fas fa-sign-out-alt" > Logout</i> 
+                            ) 
+                            }
                     </div>
                 </div>
             </div>

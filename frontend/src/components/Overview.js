@@ -99,7 +99,7 @@ const Overview = () => {
 
 
     return (
-        <div className="wrap-overview" id="g">
+        <div className="wrap-overview">
             <h3>Product Overview</h3>
             <div className="overview-select">
                 <div className="list-overview">

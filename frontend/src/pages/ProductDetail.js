@@ -12,6 +12,7 @@ import {Link} from 'react-router-dom';
 import { createProductReview } from '../actions/productActions';
 import {PRODUCT_CREATE_REVIEW_RESET} from '../contains/productContains';    
 import { Button, Form } from 'react-bootstrap';
+import TopRate from '../components/TopRate';
 
 const ProductDetail = ({match, history}) => {
     const dispatch = useDispatch();
@@ -135,9 +136,7 @@ const ProductDetail = ({match, history}) => {
                 <Message /> :
                 renderProductById()
             }
-            <div className="sale-product">
-                
-            </div>
+            <TopRate />
             <div className="reviews">
                 <h2 style={{fontWeight: '500'}}>Product Reviews</h2>
                 <hr />

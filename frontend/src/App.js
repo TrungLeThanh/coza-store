@@ -21,6 +21,7 @@ import UserEditPage from './pages/UserEditPage';
 import ProductListPage from './pages/ProductListPage';
 import ProductEditPage from './pages/ProductEditPage';
 import OrderListPage from './pages/OrderListPage';
+import Features from './pages/Features';
 
 const App = () => {
     return (
@@ -29,6 +30,7 @@ const App = () => {
             <Route path="/blog" exact component={Blog} />
             <Route path="/contact" exact component={Contact} />
             <Route path="/about" exact component={About} />
+            <Route path="/features" exact component={Features} />
             <Route path="/placeorder" exact component={PlaceOrderPage} />
             <Route path="/shipping" exact component={ShippingPage} />
             <Route path="/shop" exact component={ShopPage} />

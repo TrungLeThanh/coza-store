@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import '../components/Overview.css';
-import TextField from '@material-ui/core/TextField';
 import {useDispatch, useSelector} from 'react-redux';
 import { listProducts } from '../actions/productActions';
 import Grid from '@material-ui/core/Grid';
