@@ -6,6 +6,7 @@
     overflow: hidden;
 }
 
+
 .h2-carousel{
     font-family: 'Poppins, sans-serif';
     font-weight: 500;
@@ -77,14 +78,30 @@
         font-size: 23px;
         padding-left: 30px;
         letter-spacing: 1px;
+        bottom: 360px;
     }
     .h1-carousel{
         padding-left: 30px;
         font-size: 33px;
         letter-spacing: 1px;
+        bottom: 300px;
     }
 
     .btn-carousel{
         padding-left: 30px;
+        bottom: 230px;
+    }
+}
+
+@media (max-width: 330px) {
+    .h2-carousel{
+        bottom: 300px;
+    }
+    .h1-carousel{
+        bottom: 240px;
+    }
+
+    .btn-carousel{
+        bottom: 190px;
     }
 }
