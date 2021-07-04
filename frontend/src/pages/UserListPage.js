@@ -103,10 +103,18 @@ const UserListPage = ({history}) => {
                                 )}
                             </td>
                             <td style={{textAlign: 'center', cursor: 'pointer'}}>
-                                <LinkContainer to={`/admin/user/${user._id}/edit`}>
-                                    <i className='fas fa-edit'></i>
-                                </LinkContainer> | 
-                                <i onClick={() => confirmDelete(user._id)} style={{paddingLeft: '10px', color: '#D32F41'}} className='fas fa-trash'></i>
+                                {!user.isAdmin ?
+                                    (
+                                        <>
+                                            <LinkContainer to={`/admin/user/${user._id}/edit`}>
+                                                <i className='fas fa-edit'></i>
+                                            </LinkContainer> | 
+                                            <i onClick={() => confirmDelete(user._id)} style={{paddingLeft: '10px', color: '#D32F41'}} className='fas fa-trash'></i>
+                                        </>
+                                    ) :
+                                    '*'
+                                }
+                                
                             </td>
                         </tr>
                     ))}
