@@ -59,10 +59,6 @@ npm run server
 
 ```
 Sample User Logins
-
-admin@example.com (Admin)
-123456
-
 user1@example.com (Customer)
 123456
 
