@@ -56,10 +56,3 @@ npm run dev
 # Run backend only
 npm run server
 ```
-
-```
-Sample User Logins
-user1@example.com (Customer)
-123456
-
-```
